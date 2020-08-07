@@ -9,6 +9,7 @@
         android:layout_width="103dp"
         android:layout_height="30dp"
         android:text="NAME"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ed1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
@@ -31,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:text="EMAIL ADDRESS"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ed2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
@@ -53,6 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:text="MOBILE NO."
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ED3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.185"
@@ -76,6 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:text="DATE OF BIRTH"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ED4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.176"
@@ -100,6 +104,7 @@
         android:layout_height="30dp"
 
         android:text="GENDER"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.176"
@@ -133,4 +138,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.995" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign-Up"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/white"
+        android:onClick="onclicksignup"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton2"
+        app:layout_constraintVertical_bias="0.315" />
 </androidx.constraintlayout.widget.ConstraintLayout>
