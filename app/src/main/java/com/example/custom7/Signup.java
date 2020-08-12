@@ -15,6 +15,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Signup extends AppCompatActivity {
@@ -27,14 +28,21 @@ public class Signup extends AppCompatActivity {
     ProgressDialog progressDialog;
     HashMap<String,String> hashMap = new HashMap<>();
     HttpParse httpParse = new HttpParse();
-    public static final String UserEmail = "";
+   // public static final String UserEmail = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
         signin=findViewById(R.id.signin);
+
+
+//        stremail=email.getText().toString();
+//        strpassword=password.getText().toString();
+
+
     }
 
     public void SignUpPageClick(View view) {
@@ -45,6 +53,7 @@ public class Signup extends AppCompatActivity {
         CheckEditTextIsEmptyOrNot();
 
         if(CheckEditText){
+
 
             UserLoginFunction("login",stremail,strpassword);
 
@@ -60,8 +69,8 @@ public class Signup extends AppCompatActivity {
 
     public void CheckEditTextIsEmptyOrNot(){
 
-        stremail = email.getText().toString().trim();
-        strpassword = password.getText().toString().trim();
+        stremail = email.getText().toString();
+        strpassword = password.getText().toString();
 
         if(TextUtils.isEmpty(stremail) || TextUtils.isEmpty(strpassword))
         {
@@ -73,56 +82,61 @@ public class Signup extends AppCompatActivity {
         }
         }
 
-public void UserLoginFunction(final String method,final String Email, final String Password){
+        public void UserLoginFunction(final String method,final String Email, final String Password){
 
-class UserLoginClass extends AsyncTask<String,Void,String> {
 
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
 
-        progressDialog = ProgressDialog.show(Signup.this,"Loading Data",null,true,true);
-    }
+        class UserLoginClass extends AsyncTask<String,Void,String> {
 
-    @Override
-    protected void onPostExecute(String httpResponseMsg) {
 
-        super.onPostExecute(httpResponseMsg);
-       //String str=httpResponseMsg;
-        progressDialog.dismiss();
-        Toast.makeText(Signup.this, httpResponseMsg, Toast.LENGTH_LONG).show();
-       /*  Boolean msg=httpResponseMsg.contains("200");
-        if(msg){
-             Intent intent=new Intent(Signup.this,Custom19.class);
-             startActivity(intent);
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+
+                progressDialog = ProgressDialog.show(Signup.this,"Loading Data",null,true,true);
+            }
+
+            @Override
+            protected void onPostExecute(String httpResponseMsg) {
+
+                super.onPostExecute(httpResponseMsg);
+
+                progressDialog.dismiss();
+
+                Toast.makeText(Signup.this, httpResponseMsg, Toast.LENGTH_SHORT).show();
+
+                if(httpResponseMsg.contains("200")){
+                    Toast.makeText(Signup.this, "200", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(Signup.this, "empty", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+
+
 
             }
 
+            @Override
+            protected String doInBackground(String... params) {
 
+                hashMap.put("method",params[0]);
+                hashMap.put("customer_email",params[1]);
+                hashMap.put("customer_password",params[2]);
 
-        else{
-            Toast.makeText(Signup.this, "enter valid credential", Toast.LENGTH_SHORT).show();
-       }*/
+                Toast.makeText(Signup.this, hashMap.toString(), Toast.LENGTH_SHORT).show();
 
-    }
+                finalResult = httpParse.postRequest(hashMap, HttpURL);
 
-    @Override
-    protected String doInBackground(String... params) {
+                return finalResult;
+            }
+        }
 
-        hashMap.put("method",params[0]);
-        hashMap.put("customer_email",params[1]);
-        hashMap.put("customer_password",params[2]);
+            UserLoginClass userLoginClass = new UserLoginClass();
 
-        finalResult = httpParse.postRequest(hashMap, HttpURL);
+                userLoginClass.execute(method,Email,Password);
+                        }
 
-        return finalResult;
-    }
-}
-
-    UserLoginClass userLoginClass = new UserLoginClass();
-
-        userLoginClass.execute(method,Email,Password);
-                }
-
-                }
+                        }
 

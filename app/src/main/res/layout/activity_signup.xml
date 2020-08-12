@@ -70,19 +70,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.77" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
-        android:layout_marginBottom="117dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/get"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.152" />
+
 
     <ImageView
         android:id="@+id/imageView2"
@@ -121,9 +109,10 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:onClick="SignUpPageClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:onClick="SignUpPageClick"
         android:text="New User? Create new Account."
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"

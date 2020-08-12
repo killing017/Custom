@@ -38,12 +38,13 @@ public class MobileVerification extends AppCompatActivity {
         otp=findViewById(R.id.otp);
 
         Intent intent=getIntent();
-        String strphone =intent.getExtras().getString("phone");
+        String Strphone2 =intent.getExtras().getString("phone");
         strotp=intent.getExtras().getString("otp");
 
-        phone.setText(strphone);
+        phone.setText(Strphone2);
         otp.setText(strotp);
 
+        strphone=phone.getText().toString();
 
     }
 
@@ -103,6 +104,8 @@ public class MobileVerification extends AppCompatActivity {
                 progressDialog.dismiss();
                 boolean msg=httpResponseMsg.contains("200");
 
+                Toast.makeText(MobileVerification.this, "Account created succesfully !", Toast.LENGTH_SHORT).show();
+
                 if(msg){
                   Intent intent=new Intent(MobileVerification.this,Signup.class);
                   startActivity(intent);
@@ -118,7 +121,7 @@ public class MobileVerification extends AppCompatActivity {
                 hashMap.put("method",params[0]);
 
                 hashMap.put("customer_mobile",params[1]);
-                hashMap.put("otp",params[2]);
+                hashMap.put("otp_value",params[2]);
 
 
                 finalResult = httpParse.postRequest(hashMap, HttpURL);
