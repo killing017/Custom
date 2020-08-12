@@ -6,11 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Custom19">
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:text="Signup"
+        android:text="Signup"
         android:textAlignment="center"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
@@ -105,31 +104,31 @@
 
             android:layout_height="wrap_content" >
 
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
 
-            android:text="Male" />
+                android:text="Male" />
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
 
-            android:text="Female"
-            android:textSize="20sp" />
+                android:text="Female"
+                android:textSize="20sp" />
 
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:text="Other"
-            android:textSize="20sp" />
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="Other"
+                android:textSize="20sp" />
         </RadioGroup>
     </RelativeLayout>
 
@@ -141,7 +140,8 @@
         android:background="@drawable/custom_button"
         android:text="Submit"
         android:onClick="onClickSubmit"
-     android:textAlignment="center"
+        android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="50sp" />
+
 </LinearLayout>

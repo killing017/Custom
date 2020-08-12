@@ -24,7 +24,7 @@ public class MobileVerification extends AppCompatActivity {
 
         Intent intent=getIntent();
         String phoneno =intent.getExtras().getString("phone");
-         otpno=intent.getExtras().getString("otp");
+        otpno=intent.getExtras().getString("otp");
 
         phone.setText(phoneno);
         otp.setText(otpno);

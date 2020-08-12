@@ -22,11 +22,11 @@
         app:layout_constraintVertical_bias="0.063" />
 
     <EditText
-        android:id="@+id/ed1"
+        android:id="@+id/email"
         android:layout_width="248dp"
         android:layout_height="71dp"
         android:hint="Email"
-        app:layout_constraintBottom_toTopOf="@+id/ed2"
+        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.97" />
 
     <EditText
-        android:id="@+id/ed2"
+        android:id="@+id/password"
         android:layout_width="248dp"
         android:layout_height="61dp"
         android:hint="Password"
@@ -48,7 +48,7 @@
 
     <Button
 
-        android:id="@+id/imageView4"
+        android:id="@+id/signin"
         style="@android:style/Widget.DeviceDefault.Light.ImageButton"
         android:layout_width="250dp"
         android:layout_height="90dp"
@@ -57,7 +57,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="92dp"
-        android:background="@android:color/holo_red_dark"
+        android:background="@drawable/custom_button"
         android:contentDescription="TODO"
         android:scaleType="fitXY"
         android:text="Sign-In"
