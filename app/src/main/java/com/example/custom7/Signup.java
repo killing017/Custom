@@ -130,11 +130,11 @@ public class Signup extends AppCompatActivity {
 
                 progressDialog.dismiss();
 
-                Toast.makeText(Signup.this, httpResponseMsg, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(Signup.this, httpResponseMsg, Toast.LENGTH_SHORT).show();
 
                 if(httpResponseMsg.contains("200")){
-                    Toast.makeText(Signup.this, httpResponseMsg, Toast.LENGTH_SHORT).show();
-                   // Toast.makeText(Signup.this, "Logged in successfully !", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(Signup.this, httpResponseMsg, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Signup.this, "Logged in successfully !", Toast.LENGTH_SHORT).show();
 
                     startActivity(new Intent(Signup.this,Custom14.class));
 

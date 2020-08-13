@@ -44,7 +44,13 @@ public class JsonHttpParse {
 
             httpURLConnection.setRequestProperty("Accept", "application/json");
 
+
           
+
+            String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
+
+           // String jsonInputString="{\"method\":\"login\",\"customer_email\":\"aman123@gmail.com\",\"customer_password\":\"aman@123\"}";
+//>>>>>>> d09525c5b5723475dcb70a49dd6483cbaec19c30
 
             httpURLConnection.setDoInput(true);
 
@@ -64,7 +70,7 @@ public class JsonHttpParse {
                     response.append(responseLine.trim());
                 }
                 FinalHttpData=response.toString();
-                System.out.println(response.toString());
+                //System.out.println(response.toString());
             }
 
 
