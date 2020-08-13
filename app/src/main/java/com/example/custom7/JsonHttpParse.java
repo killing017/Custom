@@ -44,7 +44,7 @@ public class JsonHttpParse {
 
             httpURLConnection.setRequestProperty("Accept", "application/json");
 
-            String jsonInputString="{\"method\":\"login\",\"customer_email\":\"aman123@gmail.com\",\"customer_password\":\"aman@123\"}";
+            String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
 
            // String jsonInputString="{\"method\":\"login\",\"customer_email\":\"aman123@gmail.com\",\"customer_password\":\"aman@123\"}";
 
