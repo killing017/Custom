@@ -43,6 +43,7 @@ public class Signup extends AppCompatActivity {
         signin=findViewById(R.id.signin);
 
 
+
 //        stremail=email.getText().toString();
 //        strpassword=password.getText().toString();
 
@@ -51,6 +52,8 @@ public class Signup extends AppCompatActivity {
 
     public void SignUpPageClick(View view) {
         startActivity(new Intent(Signup.this,Custom19.class));
+
+
     }
 
     public void onClickSignInBtn2(View view){
