@@ -27,6 +27,7 @@
                 android:textSize="18sp"
                 android:id="@+id/tv"
                 android:text="hiii"
+                android:textColor="@android:color/white"
                 android:background="@color/design_default_color_primary"
                 android:layout_marginTop="5dp"
                 android:gravity="center"

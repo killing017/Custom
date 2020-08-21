@@ -1,14 +1,19 @@
 package com.example.custom7;
 
 public class homemodel {
-    int pic;
+    String pic;
     String text;
 
-    public int getPic() {
+    public homemodel(String pic, String text) {
+        this.pic = pic;
+        this.text = text;
+    }
+
+    public String getPic() {
         return pic;
     }
 
-    public void setPic(int pic) {
+    public void setPic(String pic) {
         this.pic = pic;
     }
 
@@ -20,8 +25,5 @@ public class homemodel {
         this.text = text;
     }
 
-    public homemodel(int pic, String text) {
-        this.pic = pic;
-        this.text = text;
-    }
+
 }

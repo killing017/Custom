@@ -13,11 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Mainscreen">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
         <activity android:name=".MobileVerification" />
         <activity android:name=".Custom15" /> <!-- <activity android:name=".Main2Activity" /> -->
@@ -33,7 +29,11 @@
         <activity android:name=".Custom23" />
         <activity android:name=".Signup" />
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

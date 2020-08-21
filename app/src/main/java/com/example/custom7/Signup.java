@@ -29,8 +29,8 @@ public class Signup extends AppCompatActivity {
     String finalResult ;
     Boolean CheckEditText ;
     ProgressDialog progressDialog;
-    HashMap<String,String> hashMap = new HashMap<>();
-    HttpParse httpParse = new HttpParse();
+   // HashMap<String,String> hashMap = new HashMap<>();
+
     JsonHttpParse jsonhttpParse = new JsonHttpParse();
    // public static final String UserEmail = "";
     @Override
@@ -164,8 +164,10 @@ public class Signup extends AppCompatActivity {
 //                hashMap.put("customer_password",params[2]);
 
                // Toast.makeText(Signup.this, hashMap.toString(), Toast.LENGTH_SHORT).show();
+                String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
 
-                finalResult = jsonhttpParse.postRequest(method,Email,Password, HttpURL);
+//                finalResult = jsonhttpParse.postRequest(method,Email,Password, HttpURL);
+                finalResult = jsonhttpParse.postRequest(jsonInputString, HttpURL);
 
                 return finalResult;
             }
