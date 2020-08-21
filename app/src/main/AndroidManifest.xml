@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="my.awesome.Garaz">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name="my.awesome.Garaz.MobileVerification"></activity>
         <activity android:name="my.awesome.Garaz.Custom15" />
 <!--        <activity android:name=".Main2Activity" />-->
@@ -26,6 +27,26 @@
         <activity android:name="my.awesome.Garaz.Custom23" />
         <activity android:name="my.awesome.Garaz.Signup" />
         <activity android:name="my.awesome.Garaz.MainActivity">
+=======
+        <activity
+            android:name=".Mainscreen">
+
+        </activity>
+        <activity android:name=".MobileVerification" />
+        <activity android:name=".Custom15" /> <!-- <activity android:name=".Main2Activity" /> -->
+        <activity android:name=".Custom14" />
+        <activity android:name=".Custom3" />
+        <activity android:name=".Custom2" />
+        <activity android:name=".Custom6" />
+        <activity android:name=".Custom19" />
+
+        <activity android:name=".Custom5" />
+        <activity android:name=".Custom21" />
+        <activity android:name=".Custom8" />
+        <activity android:name=".Custom23" />
+        <activity android:name=".Signup" />
+        <activity android:name=".MainActivity">
+>>>>>>> Aman
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

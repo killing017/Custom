@@ -22,7 +22,7 @@ public class JsonHttpParse {
     URL url;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public String postRequest(String method, String Email,String Password, String HttpUrlHolder) {
+    public String postRequest(String jsonInputString, String HttpUrlHolder) {
 
         try {
             url = new URL(HttpUrlHolder);
@@ -39,10 +39,14 @@ public class JsonHttpParse {
 
             httpURLConnection.setRequestProperty("Accept", "application/json");
 
+<<<<<<< HEAD:app/src/main/java/my/awesome/Garaz/JsonHttpParse.java
 
           
 
             String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
+=======
+           // String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
+>>>>>>> Aman:app/src/main/java/com/example/custom7/JsonHttpParse.java
 
            // String jsonInputString="{\"method\":\"login\",\"customer_email\":\"aman123@gmail.com\",\"customer_password\":\"aman@123\"}";
 //>>>>>>> d09525c5b5723475dcb70a49dd6483cbaec19c30
@@ -69,34 +73,6 @@ public class JsonHttpParse {
             }
 
 
-
-
-//            outputStream = httpURLConnection.getOutputStream();
-//
-//            bufferedWriter = new BufferedWriter(
-//
-//                    new OutputStreamWriter(outputStream, "UTF-8"));
-//
-//            bufferedWriter.write(FinalDataParse(Data));
-//
-//            bufferedWriter.flush();
-//
-//            bufferedWriter.close();
-//
-//            outputStream.close();
-//
-//            if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-//
-//                bufferedReader = new BufferedReader(
-//                        new InputStreamReader(
-//                                httpURLConnection.getInputStream()
-//                        )
-//                );
-//                FinalHttpData = bufferedReader.readLine();
-//            }
-//            else {
-//                FinalHttpData = "Something Went Wrong";
-//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -104,23 +80,6 @@ public class JsonHttpParse {
         return FinalHttpData;
     }
 
-//    public String FinalDataParse(HashMap<String,String> hashMap2) throws UnsupportedEncodingException {
-//
-//        for(Map.Entry<String,String> map_entry : hashMap2.entrySet()){
-//
-//            stringBuilder.append("&");
-//
-//            stringBuilder.append(URLEncoder.encode(map_entry.getKey(), "UTF-8"));
-//
-//            stringBuilder.append("=");
-//
-//            stringBuilder.append(URLEncoder.encode(map_entry.getValue(), "UTF-8"));
-//
-//        }
-//
-//        Result = stringBuilder.toString();
-//
-//        return Result ;
-//    }
+
 
 }
