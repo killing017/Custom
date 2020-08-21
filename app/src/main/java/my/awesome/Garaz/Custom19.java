@@ -1,4 +1,4 @@
-package com.example.custom7;
+package my.awesome.Garaz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,11 +11,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.json.JSONArray;
+//import com.example.custom7.R;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Custom19 extends AppCompatActivity {

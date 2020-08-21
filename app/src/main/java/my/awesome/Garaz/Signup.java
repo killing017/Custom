@@ -1,9 +1,8 @@
-package com.example.custom7;
+package my.awesome.Garaz;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -15,10 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+//import com.example.custom7.R;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Collections;
 import java.util.HashMap;
 
 public class Signup extends AppCompatActivity {

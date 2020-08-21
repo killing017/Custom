@@ -1,8 +1,10 @@
-package com.example.custom7;
+package my.awesome.Garaz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+//import com.example.custom7.R;
 
 public class Custom8 extends AppCompatActivity {
 

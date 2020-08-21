@@ -1,4 +1,4 @@
-package com.example.custom7;
+package my.awesome.Garaz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,8 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+//import com.example.custom7.R;
 
 import java.util.HashMap;
 

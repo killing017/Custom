@@ -1,15 +1,16 @@
-package com.example.custom7;
+package my.awesome.Garaz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Custom2 extends AppCompatActivity {
+//import com.example.custom7.R;
+
+public class Custom23 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom2);
-
+        setContentView(R.layout.activity_custom23);
     }
 }

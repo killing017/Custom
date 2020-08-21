@@ -1,4 +1,4 @@
-package com.example.custom7;
+package my.awesome.Garaz;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

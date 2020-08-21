@@ -1,4 +1,4 @@
-package com.example.custom7;
+package my.awesome.Garaz;
 
 import org.junit.Test;
 

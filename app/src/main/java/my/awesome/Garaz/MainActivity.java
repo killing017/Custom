@@ -1,10 +1,12 @@
-package com.example.custom7;
+package my.awesome.Garaz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+//import com.example.custom7.R;
 
 public class MainActivity extends AppCompatActivity {
     private static int splash_time=1500;

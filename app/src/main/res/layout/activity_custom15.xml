@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Custom15">
+    tools:context="my.awesome.Garaz.Custom15">
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="227dp"
