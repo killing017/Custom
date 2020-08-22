@@ -1,4 +1,4 @@
-package com.example.custom7;
+package my.awesome.Garaz;
 
 import android.content.Context;
 import android.view.LayoutInflater;

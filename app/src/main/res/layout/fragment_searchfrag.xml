@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/searchfrag"
-    tools:context=".searchfrag">
+    tools:context="my.awesome.Garaz.searchfrag">
 
     <androidx.appcompat.widget.SearchView
         android:layout_width="350dp"

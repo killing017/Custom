@@ -1,5 +1,5 @@
-package com.example.custom7;
-
+//package com.example.custom7;
+package my.awesome.Garaz;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;

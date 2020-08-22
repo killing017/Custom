@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/carfrag"
-    tools:context=".Carfrag">
+    tools:context="my.awesome.Garaz.Carfrag">
 
     <ImageView
         android:id="@+id/imageView12"

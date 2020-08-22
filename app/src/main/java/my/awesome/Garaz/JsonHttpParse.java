@@ -39,14 +39,14 @@ public class JsonHttpParse {
 
             httpURLConnection.setRequestProperty("Accept", "application/json");
 
-<<<<<<< HEAD:app/src/main/java/my/awesome/Garaz/JsonHttpParse.java
+//<<<<<<< HEAD:app/src/main/java/my/awesome/Garaz/JsonHttpParse.java
 
           
 
-            String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
-=======
            // String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
->>>>>>> Aman:app/src/main/java/com/example/custom7/JsonHttpParse.java
+//=======
+           // String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
+//>>>>>>> Aman:app/src/main/java/com/example/custom7/JsonHttpParse.java
 
            // String jsonInputString="{\"method\":\"login\",\"customer_email\":\"aman123@gmail.com\",\"customer_password\":\"aman@123\"}";
 //>>>>>>> d09525c5b5723475dcb70a49dd6483cbaec19c30
