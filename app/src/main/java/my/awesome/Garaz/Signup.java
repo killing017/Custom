@@ -136,7 +136,7 @@ public class Signup extends AppCompatActivity {
                    // Toast.makeText(Signup.this, httpResponseMsg, Toast.LENGTH_SHORT).show();
                     Toast.makeText(Signup.this, "Logged in successfully !", Toast.LENGTH_SHORT).show();
 
-                    startActivity(new Intent(Signup.this,Custom14.class));
+                    startActivity(new Intent(Signup.this,Mainscreen.class));
 
                 }else{
                     JSONObject jsonObject = null;

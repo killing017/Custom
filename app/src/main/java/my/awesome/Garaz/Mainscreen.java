@@ -15,11 +15,17 @@ public class Mainscreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreen);
+
+        Homefrag homefrag4=new Homefrag();
+        FragmentTransaction fragmentTransaction4=getSupportFragmentManager().beginTransaction();
+        fragmentTransaction4.replace(R.id.l1,homefrag4);
+        fragmentTransaction4.commit();
         btn=findViewById(R.id.bnav);
         //NavController navController= Navigation.findNavController(MainScreen.this,R.id.l1);
         btn.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
                 switch (menuItem.getItemId()){
                     case R.id.home:
                         Homefrag homefrag=new Homefrag();
@@ -45,6 +51,7 @@ public class Mainscreen extends AppCompatActivity {
                         fragmentTransaction3.replace(R.id.l1,accountfrag);
                         fragmentTransaction3.commit();
                         break;
+
                 }
                 return true;
             }
