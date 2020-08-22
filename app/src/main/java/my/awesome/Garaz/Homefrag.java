@@ -109,7 +109,7 @@ public class Homefrag extends Fragment {
                             JSONObject ob=result.getJSONObject(i);
 
                             // Toast.makeText(FirstActivity.this, ob.getString("name"), Toast.LENGTH_SHORT).show();
-                            homemodel history=new homemodel(ob.getString("img"),ob.getString("service_name"));
+                            homemodel history=new homemodel(R.drawable.caricon,ob.getString("img"),ob.getString("service_name"));
 
                             androidFlavors.add(history);
                         }
