@@ -25,20 +25,25 @@ public class homeAdapter1  extends RecyclerView.Adapter<homeAdapter1.viewHolder>
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.list, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.list1, parent, false);
         return new viewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        homemodel1 homemodel = androidFlavors1.get(position);
+        homemodel1 homemodel1 = androidFlavors1.get(position);
         //Picasso.with(context).load(homemodel.getPic()).fit().centerCrop().into(holder.imageView);
-        Picasso.with(context).load("https://i.imgur.com/tGbaZCY.jpg").fit().centerCrop().into(holder.imageView);
+     //   Picasso.with(context).load("https://i.imgur.com/tGbaZCY.jpg").fit().centerCrop().into(holder.imageView);
 
 
 
-        //holder.imageView.setImageResource(homemodel.getPic());
-        holder.textView.setText(homemodel.getText());
+        holder.imageView.setImageResource(homemodel1.getDraw_pic());
+        holder.text.setText(homemodel1.getText());
+        holder.text1.setText(homemodel1.getText1());
+        holder.text2.setText(homemodel1.getText2());
+        holder.text3.setText(homemodel1.getText3());
+        holder.text4.setText(homemodel1.getText4());
+
     }
 
     @Override
@@ -48,12 +53,16 @@ public class homeAdapter1  extends RecyclerView.Adapter<homeAdapter1.viewHolder>
 
     public class viewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView textView;
+        TextView text,text1,text2,text3,text4;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image);
-            textView = itemView.findViewById(R.id.text1);
+            text = itemView.findViewById(R.id.text);
+            text1 = itemView.findViewById(R.id.text1);
+            text2= itemView.findViewById(R.id.text2);
+            text3 = itemView.findViewById(R.id.text3);
+            text4 = itemView.findViewById(R.id.text4);
         }
     }
 }
