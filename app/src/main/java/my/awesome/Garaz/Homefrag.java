@@ -35,12 +35,13 @@ public class Homefrag extends Fragment {
 
     ProgressDialog progressDialog;
 
-    RecyclerView recyclerView;
+    RecyclerView recyclerView,recyclerView1;
     homeAdapter flavorAdapter;
+    homeAdapter1 flavorAdapter1;
     JsonHttpParse jsonhttpParse = new JsonHttpParse();
 
     ArrayList<homemodel> androidFlavors = new ArrayList<homemodel>();
-
+    ArrayList<homemodel1> androidFlavors1 = new ArrayList<homemodel1>();
 
     public Homefrag() {
         // Required empty public constructor
@@ -62,7 +63,10 @@ public class Homefrag extends Fragment {
 //        androidFlavors.add(new homemodel(R.drawable.ic_directions_car_black_24dp,"ram"));
 
          flavorAdapter = new homeAdapter( androidFlavors, getContext());
+        flavorAdapter1 = new homeAdapter1( androidFlavors1, getContext());
          recyclerView=view.findViewById(R.id.rec);
+        recyclerView.setHasFixedSize(true);
+        recyclerView=view.findViewById(R.id.rec1);
         recyclerView.setHasFixedSize(true);
         // Get a reference to the ListView, and attach the adapter to the listView.
 
