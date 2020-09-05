@@ -39,10 +39,10 @@ public class homeAdapter1  extends RecyclerView.Adapter<homeAdapter1.viewHolder>
 
         holder.imageView.setImageResource(homemodel1.getDraw_pic());
         holder.text.setText(homemodel1.getText());
-        holder.text1.setText(homemodel1.getText1());
+     //  holder.text1.setText(homemodel1.getText1());
         holder.text2.setText(homemodel1.getText2());
-        holder.text3.setText(homemodel1.getText3());
-        holder.text4.setText(homemodel1.getText4());
+        holder.text3.append(homemodel1.getText3());
+        holder.text4.append(homemodel1.getText4());
 
     }
 
