@@ -1,10 +1,12 @@
 package my.awesome.Garaz;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,6 +46,14 @@ public class homeAdapter1  extends RecyclerView.Adapter<homeAdapter1.viewHolder>
         holder.text3.append(homemodel1.getText3());
         holder.text4.append(homemodel1.getText4());
 
+       holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               context.startActivity(new Intent(context,Custom24.class));
+           }
+       });
+
+
     }
 
     @Override
@@ -54,7 +64,7 @@ public class homeAdapter1  extends RecyclerView.Adapter<homeAdapter1.viewHolder>
     public class viewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView text,text1,text2,text3,text4;
-
+        LinearLayout linearLayout;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image);
@@ -63,6 +73,10 @@ public class homeAdapter1  extends RecyclerView.Adapter<homeAdapter1.viewHolder>
             text2= itemView.findViewById(R.id.text2);
             text3 = itemView.findViewById(R.id.text3);
             text4 = itemView.findViewById(R.id.text4);
+
+            linearLayout=itemView.findViewById(R.id.linearlayout_adds);
+
         }
+
     }
 }

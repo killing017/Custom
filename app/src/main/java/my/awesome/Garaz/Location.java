@@ -23,7 +23,7 @@ import java.util.Locale;
 
 public class Location extends AppCompatActivity implements LocationListener {
 
-TextView t1;
+    TextView t1;
     LocationManager locationManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

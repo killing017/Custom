@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class searchfrag extends Fragment {
     SearchView searchView;
-searchAdapter flavorAdapter1;
+   searchAdapter flavorAdapter1;
     public searchfrag() {
         // Required empty public constructor
     }
@@ -31,7 +31,7 @@ searchAdapter flavorAdapter1;
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_searchfrag, container, false);
         searchView=view.findViewById(R.id.search);
-searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+   searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
     @Override
     public boolean onQueryTextSubmit(String query) {
         return false;
