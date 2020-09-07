@@ -3,7 +3,8 @@
     package="my.awesome.Garaz">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,13 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Myprofile"></activity>
         <activity android:name=".Location">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <!-- <<<<<<< HEAD -->
+
+        </activity> <!-- <<<<<<< HEAD -->
         <activity android:name=".MobileVerification" />
         <activity android:name=".Custom15" /> <!-- <activity android:name=".Main2Activity" /> -->
         <activity android:name=".Custom14" />
@@ -32,6 +30,11 @@
         <activity android:name=".Custom23" />
         <activity android:name=".Signup" />
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Mainscreen" />
     </application>

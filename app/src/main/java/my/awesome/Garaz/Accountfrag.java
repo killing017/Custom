@@ -1,6 +1,10 @@
 package my.awesome.Garaz;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -10,11 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 
-public class Accountfrag extends Fragment {
+public class Accountfrag extends Fragment  {
 
-Button b1;
+TextView logout;
+TextView account;
     public Accountfrag() {
         // Required empty public constructor
     }
@@ -29,14 +35,45 @@ Button b1;
 
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_accountfrag, container, false);
-     b1=view.findViewById(R.id.b1);
-     b1.setOnClickListener(new View.OnClickListener() {
+     logout=view.findViewById(R.id.logout);
+     logout.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
+             AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+             builder.setTitle("Logout");
+             builder.setMessage("Are you sure you want to logout?");
+             builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                 @Override
+                 public void onClick(DialogInterface dialogInterface, int i) {
+                     getActivity().finishAffinity();
+                     System.exit(0);
+                 }
+             });
+
+             builder.setNegativeButton("NO",new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialogInterface, int i){
+                     dialogInterface.dismiss();
+                 }
+             });
+             builder.show();
 
          }
      });
+     account=view.findViewById(R.id.profile);
+     account.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             Intent intent=new Intent(getActivity(),Myprofile.class);
+             startActivity(intent);
+
+         }
+     });
+
         return  view;
     }
+
+
+
 
 }
