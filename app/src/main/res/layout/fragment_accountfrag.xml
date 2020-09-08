@@ -57,7 +57,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             app:srcCompat="@drawable/ic_directions_car_black_24dp"
-android:tint="#34D0ff"
+            android:tint="#34D0ff"
             android:layout_gravity="center"
             android:layout_margin="10dp" />
 

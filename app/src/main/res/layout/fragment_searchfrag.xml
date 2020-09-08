@@ -10,8 +10,13 @@
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:layout_width="350dp"
+        android:background="@drawable/customtextview"
         android:layout_height="wrap_content"/>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec"

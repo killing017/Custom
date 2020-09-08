@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,7 @@ import android.widget.TextView;
 
 public class Accountfrag extends Fragment  {
 
-TextView logout;
+TextView logout,mycars;
 TextView account;
     public Accountfrag() {
         // Required empty public constructor
@@ -67,6 +68,16 @@ TextView account;
              Intent intent=new Intent(getActivity(),Myprofile.class);
              startActivity(intent);
 
+         }
+     });
+     mycars=view.findViewById(R.id.cars);
+     mycars.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             searchfrag searchfrag=new searchfrag();
+             FragmentTransaction fragmentTransaction2=getParentFragmentManager().beginTransaction();
+             fragmentTransaction2.replace(R.id.l1,searchfrag);
+             fragmentTransaction2.commit();
          }
      });
 
