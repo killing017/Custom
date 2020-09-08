@@ -30,11 +30,23 @@ public class carAdapter extends RecyclerView.Adapter<carAdapter.viewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        carmodel carmodel = carflavor.get(position);
+    public void onBindViewHolder(@NonNull viewHolder holder, final int position) {
+        final carmodel carmodel = carflavor.get(position);
         holder.imageView.setImageResource(carmodel.getImage());
         holder.textView.setText(carmodel.getText());
         holder.textView1.setText(carmodel.getText1());
+
+       holder.textView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeitem(carmodel);
+            }
+        });
+    }
+    public  void  removeitem(carmodel carmodel){
+        int position=carflavor.indexOf(carmodel);
+        carflavor.remove(position);
+        notifyItemRemoved(position);
     }
 
     @Override
@@ -44,15 +56,19 @@ public class carAdapter extends RecyclerView.Adapter<carAdapter.viewHolder> {
 
     public class viewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
-        TextView textView,textView1;
+        TextView textView,textView1,textView2;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.car1);
             textView=itemView.findViewById(R.id.text1);
             textView1=itemView.findViewById(R.id.fuel);
+           textView2=itemView.findViewById(R.id.remove);
+
 
         }
+
+
     }
 
     }
