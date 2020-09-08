@@ -4,33 +4,36 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_margin="5dp"
-        android:layout_height="wrap_content"
-        app:cardElevation="5dp">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
 
-            <ImageView
-                android:scaleType="centerCrop"
-                android:id="@+id/img1"
-                android:elevation="5dp"
-                android:background="@color/colorAccent"
-                android:layout_width="match_parent"
-                android:layout_height="110dp"/>
-            <TextView
-                android:textSize="18sp"
-                android:id="@+id/tv1"
-                android:text="hiii"
-                android:background="@color/design_default_color_primary"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_width="70dp"
+            android:id="@+id/img1"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv1"
+            android:text="Standard Service"
+            android:textSize="25sp" />
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
 
+</LinearLayout>
 </LinearLayout>

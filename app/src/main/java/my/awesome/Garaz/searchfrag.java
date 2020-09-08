@@ -6,11 +6,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
 import androidx.appcompat.widget.SearchView;
 
 import java.util.ArrayList;
@@ -45,12 +48,12 @@ public class searchfrag extends Fragment {
     }
 });
         final ArrayList<searchModel> androidFlavors1= new ArrayList<searchModel>();
-        androidFlavors1.add(new searchModel(R.drawable.ic_directions_car_black_24dp,"ram"));
-        androidFlavors1.add(new searchModel(R.drawable.ic_directions_car_black_24dp,"pam"));
-        androidFlavors1.add(new searchModel(R.drawable.ic_directions_car_black_24dp,"jam"));
-        androidFlavors1.add(new searchModel(R.drawable.ic_directions_car_black_24dp,"ram"));
-        androidFlavors1.add(new searchModel(R.drawable.ic_directions_car_black_24dp,"ram"));
-        androidFlavors1.add(new searchModel(R.drawable.ic_directions_car_black_24dp,"ram"));
+        androidFlavors1.add(new searchModel(R.drawable.hundaii,"SWIFT DZIRE PETROL"));
+        androidFlavors1.add(new searchModel(R.drawable.hundaii,"SWIFT DZIRE PETROL"));
+        androidFlavors1.add(new searchModel(R.drawable.hundaii,"SWIFT DZIRE PETROL"));
+        androidFlavors1.add(new searchModel(R.drawable.hundaii,"I10 SPORTZ PETROL"));
+        androidFlavors1.add(new searchModel(R.drawable.hundaii,"HONDA DZIRE PETROL"));
+
         //androidFlavors.add(new homemodel(,"ram"));
         //  homeAdapter adapter=new homeAdapter(androidFlavors,getContext());
 
@@ -59,8 +62,8 @@ public class searchfrag extends Fragment {
         // Get a reference to the ListView, and attach the adapter to the listView.
 
         recyclerView.setAdapter(flavorAdapter1);
-        GridLayoutManager gridLayoutManager=new GridLayoutManager(getContext(),3);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,true);
+        recyclerView.setLayoutManager(linearLayoutManager);
 
         return  view;
     }
