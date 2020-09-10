@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/linearlayout_adds"
     android:layout_height="150dp">
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
+       android:backgroundTint="@color/colorPrimary"
         android:layout_marginRight="5dp"
         android:layout_height="match_parent"
         app:cardElevation="6dp"
@@ -15,18 +18,18 @@
         <ImageView
 
         android:id="@+id/image"
-        android:layout_width="match_parent"
+         android:layout_width="160dp"
+
+            android:src="@drawable/hundaii"
         android:layout_height="match_parent"
-        android:scaleType="center" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:id="@+id/text"
-        android:text=""
-        android:textColor="#fff"
-        android:layout_height="wrap_content"/>
+            android:layout_gravity="end"
+        android:scaleType="centerInside" />
         <TextView
             android:layout_width="wrap_content"
             android:id="@+id/text1"
+            android:background="@android:color/holo_red_dark"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:layout_below="@+id/text"
             android:text="My Offer name"
             android:layout_gravity="center_vertical"
@@ -35,6 +38,13 @@
             android:textSize="25sp"
             android:textColor="#80D8FF"
             android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/text"
+        android:text=""
+        android:textColor="#fff"
+        android:layout_height="wrap_content"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:id="@+id/text2"
@@ -43,6 +53,9 @@
             android:textColor="#fff"
             android:layout_height="wrap_content"/>
         <TextView
+            android:background="@android:color/holo_blue_bright"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
             android:layout_width="wrap_content"
             android:id="@+id/text3"
             android:layout_below="@+id/text2"
@@ -54,6 +67,7 @@
             android:textColor="@color/colorAccent"
             android:layout_height="wrap_content"/>
         <TextView
+            android:background="@android:color/holo_purple"
             android:layout_width="wrap_content"
             android:id="@+id/text4"
             android:layout_gravity="bottom"
@@ -63,7 +77,7 @@
             android:textStyle="italic"
             android:textSize="20sp"
             android:layout_marginLeft="11dp"
-            android:textColor="#4AE75A"
+            android:textColor="@android:color/white"
             android:layout_height="wrap_content"/>
 
 <!--        <TextView-->

@@ -11,26 +11,26 @@
         android:layout_width="match_parent"
         android:layout_margin="5dp"
         android:layout_height="wrap_content"
-        app:cardElevation="5dp">
+        app:cardElevation="20dp"
+        app:cardCornerRadius="20dp">
         <LinearLayout
+android:background="@drawable/customborder"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:scaleType="centerCrop"
+                android:scaleType="centerInside"
                 android:id="@+id/img"
-                android:elevation="5dp"
-                android:background="@color/colorAccent"
+                android:src="@drawable/promocodecar2"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"/>
+                android:layout_height="100dp"/>
             <TextView
                 android:textSize="18sp"
                 android:id="@+id/tv"
                 android:text="hiii"
-                android:textColor="@android:color/white"
-                android:background="@color/design_default_color_primary"
-                android:layout_marginTop="5dp"
+                android:textColor="@android:color/black"
+                android:background="@android:color/white"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

@@ -8,13 +8,32 @@
     android:orientation="vertical"
     tools:context="my.awesome.Garaz.Custom24">
 
+    <TextView
+        android:id="@+id/services"
+        android:text="CAR CARE SERVICE"
+        android:padding="6dp"
+        android:background="@color/colorAccent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="@android:color/holo_red_dark"/>
+
     <androidx.recyclerview.widget.RecyclerView
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/custom24"
         android:id="@+id/recyclerview"/>
-
 
 
 </LinearLayout>

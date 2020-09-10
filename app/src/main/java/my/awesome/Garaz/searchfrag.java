@@ -48,11 +48,12 @@ public class searchfrag extends Fragment {
     }
 });
         final ArrayList<searchModel> androidFlavors1= new ArrayList<searchModel>();
-        androidFlavors1.add(new searchModel(R.drawable.hundaii,"SWIFT DZIRE PETROL"));
-        androidFlavors1.add(new searchModel(R.drawable.hundaii,"SWIFT DZIRE PETROL"));
-        androidFlavors1.add(new searchModel(R.drawable.hundaii,"SWIFT DZIRE PETROL"));
-        androidFlavors1.add(new searchModel(R.drawable.hundaii,"I10 SPORTZ PETROL"));
-        androidFlavors1.add(new searchModel(R.drawable.hundaii,"HONDA DZIRE PETROL"));
+
+//        androidFlavors1.add(new searchModel(R.drawable.hundaii,"SWIFT DZIRE PETROL"));
+//        androidFlavors1.add(new searchModel(R.drawable.hundaii,"SWIFT DZIRE PETROL"));
+//        androidFlavors1.add(new searchModel(R.drawable.hundaii,"SWIFT DZIRE PETROL"));
+//        androidFlavors1.add(new searchModel(R.drawable.hundaii,"I10 SPORTZ PETROL"));
+//        androidFlavors1.add(new searchModel(R.drawable.hundaii,"HONDA DZIRE PETROL"));
 
         //androidFlavors.add(new homemodel(,"ram"));
         //  homeAdapter adapter=new homeAdapter(androidFlavors,getContext());

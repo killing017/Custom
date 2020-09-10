@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/services"
-        android:text="CAR CARE SERVICE"
-        android:layout_margin="20dp"
-        android:textSize="30sp"
-        android:textColor="#000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    android:id="@+id/linearlayout_subServices"
+    android:layout_height="wrap_content">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="@drawable/customborder">
 
         <ImageView
-            android:layout_width="70dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:id="@+id/carimage"
-            android:layout_height="70dp"
+            android:src="@drawable/hundaii"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="0dp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="7dp"
             android:orientation="vertical">
 
             <TextView
@@ -36,14 +34,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/text1"
                 android:text="Standard Service"
-                android:textSize="25sp" />
+                android:textSize="17sp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:textColor="#000"
                 android:layout_height="wrap_content"
                 android:id="@+id/text2"
-                android:text="2345"
-                android:textSize="20sp" />
+                android:text="$ 20.00"
+                android:textSize="17sp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -55,16 +53,17 @@
                 android:text="-1 month warranty" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="43dp"
-            android:layout_gravity="center"
-            android:textColor="#D81B20"
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:textColor="@android:color/white"
             android:text="Add"
-            android:layout_marginLeft="30dp"
-
-            android:textAlignment="center"
-            android:textSize="25sp" />
+            android:layout_marginLeft="7dp"
+            android:background="@android:color/holo_red_dark"
+            android:textAlignment="center"/>
     </LinearLayout>
 
 </LinearLayout>

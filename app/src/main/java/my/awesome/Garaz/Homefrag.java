@@ -125,7 +125,7 @@ public class Homefrag extends Fragment {
                             JSONObject ob=result.getJSONObject(i);
 
                             // Toast.makeText(FirstActivity.this, ob.getString("name"), Toast.LENGTH_SHORT).show();
-                            homemodel1 history1=new homemodel1(R.drawable.caricon,ob.getString("offer_name")
+                            homemodel1 history1=new homemodel1(R.drawable.hundaii,ob.getString("offer_name")
                                     ,ob.getString("from_date"),ob.getString("to_date"),ob.getString("discount"),ob.getString("promo_code"));
 
                             androidFlavors1.add(history1);
@@ -211,7 +211,8 @@ public class Homefrag extends Fragment {
                             JSONObject ob=result.getJSONObject(i);
 
                             // Toast.makeText(FirstActivity.this, ob.getString("name"), Toast.LENGTH_SHORT).show();
-                            homemodel history=new homemodel(R.drawable.promocodecar2,ob.getString("img"),ob.getString("service_name"));
+                            homemodel history=new homemodel(R.drawable.promocodecar2,ob.getString("img"),
+                                    ob.getString("service_name"),ob.getString("sch_servie_id"));
 
                             androidFlavors.add(history);
                         }

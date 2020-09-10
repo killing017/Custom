@@ -32,9 +32,9 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         custom24model custom24model1 = customflavor.get(position);
         holder.imageView.setImageResource(custom24model1.getImage());
-        holder.textView.setText(custom24model1.getText());
-        holder.textView1.setText(custom24model1.getText1());
-        holder.textView2.setText(custom24model1.getText2());
+
+        holder.textView1.setText(custom24model1.getText());
+        //holder.textView2.setText(custom24model1.getText2());
     }
 
     @Override
@@ -44,11 +44,11 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
 
     public class viewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView textView, textView1,textView2;
+        TextView  textView1,textView2;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
-            textView=itemView.findViewById(R.id.services);
+            //textView=itemView.findViewById(R.id.services);
             imageView=itemView.findViewById(R.id.carimage);
             textView1=itemView.findViewById(R.id.text1);
             textView2=itemView.findViewById(R.id.text2);

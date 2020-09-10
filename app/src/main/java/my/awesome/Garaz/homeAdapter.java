@@ -34,7 +34,7 @@ public class homeAdapter  extends RecyclerView.Adapter<homeAdapter.viewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        homemodel homemodel = androidFlavors.get(position);
+        final homemodel homemodel = androidFlavors.get(position);
         //Picasso.with(context).load(homemodel.getPic()).fit().centerCrop().into(holder.imageView);
         //Picasso.with(context).load("https://i.imgur.com/tGbaZCY.jpg").fit().centerCrop().into(holder.imageView);
 
@@ -44,7 +44,10 @@ public class homeAdapter  extends RecyclerView.Adapter<homeAdapter.viewHolder> {
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context,Custom24.class));
+               Intent intent=new Intent(context,Custom24.class);
+               intent.putExtra("id",homemodel.getId());
+               intent.putExtra("subservice_name",homemodel.getText());
+               context.startActivity(intent);
             }
         });
 
