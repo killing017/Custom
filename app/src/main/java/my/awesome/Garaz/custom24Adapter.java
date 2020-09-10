@@ -4,21 +4,29 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
-public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHolder> {
+public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHolder> implements Filterable {
     private ArrayList<custom24model> customflavor;
     Context context;
+    List<custom24model> list;
 
     public custom24Adapter(ArrayList<custom24model> customflavor, Context context) {
         this.customflavor = customflavor;
         this.context = context;
+        list=new ArrayList<>(customflavor);
     }
 
     @NonNull
@@ -29,22 +37,67 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull viewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final viewHolder holder, int position) {
         custom24model custom24model1 = customflavor.get(position);
         holder.imageView.setImageResource(custom24model1.getImage());
 
         holder.textView1.setText(custom24model1.getText());
         //holder.textView2.setText(custom24model1.getText2());
+
+
+        holder.add_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+               String price= holder.textView2.getText().toString();
+                Toast.makeText(context, price, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
         return customflavor.size();
     }
+    public Filter getFilter() {
+        return filter;
+    }
+    Filter filter=new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            List<custom24model> filteredlist = new ArrayList<>();
+            if (charSequence.toString().isEmpty()) {
+                filteredlist.addAll(list);
+
+            } else {
+                for (custom24model hm1 : list) {
+                    if (hm1.getText().toLowerCase().contains(charSequence.toString().toLowerCase())) {
+                        filteredlist.add(hm1);
+
+                    }
+                }
+            }
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredlist;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            customflavor.clear();
+            customflavor.addAll((Collection<? extends custom24model>) filterResults.values);
+            notifyDataSetChanged();
+        }
+
+    };
+
 
     public class viewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView  textView1,textView2;
+        Button add_btn;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
@@ -52,6 +105,8 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
             imageView=itemView.findViewById(R.id.carimage);
             textView1=itemView.findViewById(R.id.text1);
             textView2=itemView.findViewById(R.id.text2);
+
+            add_btn=itemView.findViewById(R.id.add_btn);
         }
     }
 }

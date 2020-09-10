@@ -2,6 +2,7 @@ package my.awesome.Garaz;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -9,6 +10,8 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +22,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -29,7 +35,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class Homefrag extends Fragment {
+public class Homefrag extends DialogFragment {
 
     String HttpURL = "https://www.cakiweb.com/mechanic/json-api/api.php";
 
@@ -47,6 +53,22 @@ public class Homefrag extends Fragment {
     ArrayList<homemodel> androidFlavors = new ArrayList<homemodel>();
     ArrayList<homemodel1> androidFlavors1 = new ArrayList<homemodel1>();
 
+    ImageButton car;
+
+    TextView carselected;
+    String[] listItems;
+    boolean[] checkedItems;
+    int checked;
+
+    String[] str;
+    String car_select;
+
+    int no=0;
+    Object checkedcar;
+    ArrayList<Integer> mUserItems = new ArrayList<>();
+//    AlertDialog.Builder mBuilder;
+//    AlertDialog mDialog;
+
     public Homefrag() {
         // Required empty public constructor
     }
@@ -59,6 +81,63 @@ public class Homefrag extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_homefrag, container, false);
 
+        car=view.findViewById(R.id.select_car);
+        carselected = view.findViewById(R.id.selected_car_name);
+
+        listItems = getResources().getStringArray(R.array.shopping_item);
+        checkedItems = new boolean[listItems.length];
+        car.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getContext(), "helloooo", Toast.LENGTH_SHORT).show();
+
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
+                mBuilder.setTitle("Select Car");
+
+                mBuilder.setSingleChoiceItems(listItems, checked, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        //Toast.makeText(getContext(), listItems[which], Toast.LENGTH_SHORT).show();
+
+                        //Toast.makeText(getContext(), String.valueOf(which), Toast.LENGTH_SHORT).show();
+
+                        str=listItems[which].split(" ");
+                        car_select=str[str.length-1];
+
+
+                    }
+                });
+
+
+
+                mBuilder.setCancelable(false);
+                mBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+
+
+                        if(car_select==null){
+                            carselected.setText("WagonR");
+                        }else {
+                            carselected.setText(car_select);
+                        }
+                    }
+                });
+
+                mBuilder.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+
+                AlertDialog mDialog = mBuilder.create();
+                mDialog.show();
+
+            }
+        });
 
 //        androidFlavors.add(new homemodel(R.drawable.ic_directions_car_black_24dp,"ram"));
 //        androidFlavors.add(new homemodel(R.drawable.ic_directions_car_black_24dp,"ram"));

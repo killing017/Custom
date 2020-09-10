@@ -138,7 +138,7 @@ ProgressDialog progressDialog1;
             protected String doInBackground(String... params) {
 
 
-                String jsonInputString="{\"method\":\"getAllsubService\"}";
+                // jsonInputString="{\"method\":\"getAllsubService\"}";
                 String jsonInputString1="{\"method\":\"getAllsubService\",\"service_id\":\""+id+"\"}";
 
                 finalResult1 = jsonhttpParse.postRequest(jsonInputString1, HttpURL);

@@ -7,22 +7,51 @@
     android:orientation="vertical"
     tools:context="my.awesome.Garaz.Homefrag">
 
-    <LinearLayout
+    <RelativeLayout
+        android:layout_marginTop="8dp"
         android:id="@+id/lin1"
-        android:layout_alignParentTop="true"
+        android:layout_marginRight="8dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_width="312dp"
-            android:layout_height="55dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/customtextview" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Mr.Garaz"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@android:color/holo_red_dark"
+            android:layout_marginLeft="20dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true">
+
+        <ImageButton
+            android:scaleType="fitCenter"
+            android:id="@+id/select_car"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/hundaii"
+            android:background="@android:color/white"/>
+
+          <TextView
+              android:id="@+id/selected_car_name"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Car name"
+              android:textColor="@android:color/black"
+              android:textStyle="bold"/>
+        </LinearLayout>
+
+    </RelativeLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_margin="5dp"
