@@ -51,7 +51,12 @@ public class Mainscreen extends AppCompatActivity {
                         fragmentTransaction3.replace(R.id.l1,accountfrag);
                         fragmentTransaction3.commit();
                         break;
-
+                    case R.id.cart:
+                        Cartfrag cartfrag=new Cartfrag();
+                        FragmentTransaction fragmentTransaction7=getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction7.replace(R.id.l1,cartfrag);
+                        fragmentTransaction7.commit();
+                        break;
                 }
                 return true;
             }

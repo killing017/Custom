@@ -37,20 +37,19 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final viewHolder holder, int position) {
-        custom24model custom24model1 = customflavor.get(position);
+    public void onBindViewHolder(@NonNull final viewHolder holder, final int position) {
+        final custom24model custom24model1= customflavor.get(position);
+        final int currentPosition=position;
         holder.imageView.setImageResource(custom24model1.getImage());
-
         holder.textView1.setText(custom24model1.getText());
         //holder.textView2.setText(custom24model1.getText2());
-
-
         holder.add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Sharedpref.getInstance(context).saveitem(customflavor.get(currentPosition));
                String price= holder.textView2.getText().toString();
-                Toast.makeText(context, price, Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(context, "item added successful of price "+price, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -67,13 +66,14 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
     Filter filter=new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
-            List<custom24model> filteredlist = new ArrayList<>();
+           List<custom24model> filteredlist = new ArrayList<>();
             if (charSequence.toString().isEmpty()) {
                 filteredlist.addAll(list);
 
             } else {
                 for (custom24model hm1 : list) {
                     if (hm1.getText().toLowerCase().contains(charSequence.toString().toLowerCase())) {
+
                         filteredlist.add(hm1);
 
                     }
@@ -105,7 +105,6 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
             imageView=itemView.findViewById(R.id.carimage);
             textView1=itemView.findViewById(R.id.text1);
             textView2=itemView.findViewById(R.id.text2);
-
             add_btn=itemView.findViewById(R.id.add_btn);
         }
     }

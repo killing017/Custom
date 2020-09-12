@@ -50,6 +50,7 @@ public class homeAdapter1  extends RecyclerView.Adapter<homeAdapter1.viewHolder>
            @Override
            public void onClick(View v) {
                context.startActivity(new Intent(context,Custom24.class));
+
            }
        });
 
@@ -73,7 +74,6 @@ public class homeAdapter1  extends RecyclerView.Adapter<homeAdapter1.viewHolder>
             text2= itemView.findViewById(R.id.text2);
             text3 = itemView.findViewById(R.id.text3);
             text4 = itemView.findViewById(R.id.text4);
-
             linearLayout=itemView.findViewById(R.id.linearlayout_adds);
 
         }

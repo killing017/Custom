@@ -8,24 +8,18 @@
     android:id="@+id/searchfrag"
     tools:context="my.awesome.Garaz.searchfrag">
 
-<!--    <androidx.appcompat.widget.SearchView-->
-<!--        android:id="@+id/search"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_margin="20dp"-->
-<!--        android:layout_width="350dp"-->
-<!--        android:background="@drawable/customtextview"-->
-<!--        android:layout_height="wrap_content"/>-->
 
-    <SearchView
-        android:layout_gravity="center_horizontal"
+
+   <SearchView
+    android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
         android:id="@+id/searchView"
         android:layout_width="match_parent"
-        android:background="@drawable/customborder"
-        android:layout_height="wrap_content"
-        android:queryHint="Search Here"
-        android:iconifiedByDefault="false"
-        android:layout_alignParentTop="true"
+         android:background="@drawable/customborder"
+         android:layout_height="wrap_content"
+         android:queryHint="Search Here"
+         android:iconifiedByDefault="false"
+         android:layout_alignParentTop="true"
         />
 
 

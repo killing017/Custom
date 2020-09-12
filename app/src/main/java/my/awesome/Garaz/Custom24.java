@@ -1,5 +1,6 @@
 package my.awesome.Garaz;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -102,7 +103,7 @@ ProgressDialog progressDialog1;
 
                             // Toast.makeText(FirstActivity.this, ob.getString("name"), Toast.LENGTH_SHORT).show();
                             custom24model history1=new custom24model(R.drawable.hundaii,ob.getString("sub_service")
-                                    ,ob.getString("sch_servie_id"),ob.getString("service_id"));
+                                   );
 
                             customflavor.add(history1);
                         }

@@ -84,25 +84,26 @@ public class searchfrag extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 //    adapter.getFilter().filter(newText);
+             //   customAdapter.getFilter().filter(newText);
                 return false;
             }
         });
 
-//   searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//    @Override
-//    public boolean onQueryTextSubmit(String query) {
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean onQueryTextChange(String newText) {
-//
-//        //flavorAdapter1.getFilter().filter(newText);
-//        customAdapter.getFilter().filter(newText);
-//        return true;
-//    }
-//});
-        final ArrayList<searchModel> androidFlavors1= new ArrayList<searchModel>();
+  /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+
+        //flavorAdapter1.getFilter().filter(newText);
+        customAdapter.getFilter().filter(newText);
+        return true;
+    }
+});*/
+       final ArrayList<searchModel> androidFlavors1= new ArrayList<searchModel>();
 
 //        androidFlavors1.add(new searchModel(R.drawable.hundaii,"SWIFT DZIRE PETROL"));
 //        androidFlavors1.add(new searchModel(R.drawable.hundaii,"SWIFT DZIRE PETROL"));
@@ -167,8 +168,7 @@ public class searchfrag extends Fragment {
 
                             // Toast.makeText(FirstActivity.this, ob.getString("name"), Toast.LENGTH_SHORT).show();
                             custom24model history1=new custom24model(R.drawable.hundaii,ob.getString("sub_service")
-                                    ,ob.getString("sch_servie_id"),ob.getString("service_id"));
-
+                                   );
                             customflavor.add(history1);
                         }
 
