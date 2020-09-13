@@ -46,6 +46,7 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
         holder.add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Sharedpref.getInstance(context).saveitem(customflavor.get(currentPosition));
                String price= holder.textView2.getText().toString();
 

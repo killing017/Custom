@@ -5,16 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.razorpay.Checkout;
+import com.razorpay.PaymentResultListener;
 
-public class Mainscreen extends AppCompatActivity {
+import org.json.JSONObject;
+
+public class Mainscreen extends AppCompatActivity implements PaymentResultListener {
+    private static final String TAG = Mainscreen.class.getSimpleName();
     BottomNavigationView btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreen);
+
+        Checkout.preload(getApplicationContext());
 
         Homefrag homefrag4=new Homefrag();
         FragmentTransaction fragmentTransaction4=getSupportFragmentManager().beginTransaction();
@@ -61,5 +70,61 @@ public class Mainscreen extends AppCompatActivity {
                 return true;
             }
         });
+    }
+    public void startPayment() {
+
+        /**
+         * Instantiate Checkout
+         */
+        Checkout.preload(getApplicationContext());
+        Checkout checkout = new Checkout();
+        //checkout.setKeyID("rzp_test_YZ0rZv8DFWccCl");
+
+        /**
+         * Set your logo here
+         */
+        checkout.setImage(R.drawable.logo);
+
+        /**
+         * Reference to current activity
+         */
+        final Mainscreen activity = this;
+
+        /**
+         * Pass your payment options to the Razorpay Checkout as a JSONObject
+         */
+        try {
+            JSONObject options = new JSONObject();
+
+            options.put("name", "Example name");
+            options.put("description", "Payment description ");
+            options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
+            //options.put("order_id", "order_DBJOWzybf0sJbb");//from response of step 3.
+            options.put("theme.color", "#FF0000");
+            options.put("currency", "INR");
+            options.put("amount", "500");//pass amount in currency subunits
+            options.put("prefill.email", "amanm1408@gmail.com");
+            options.put("prefill.contact","1234567089");
+            checkout.open(activity, options);
+        } catch(Exception e) {
+            Log.e(TAG, "Error in starting Razorpay Checkout", e);
+        }
+    }
+
+    @Override
+    public void onPaymentSuccess(String s) {
+        Toast.makeText(this, "Payment success--"+s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPaymentError(int i, String s) {
+
+       // Toast.makeText(this, i+"-"+s, Toast.LENGTH_SHORT).show();
+        try {
+            Toast.makeText(this, "error is coming--"+String.valueOf(i)+"--"+s, Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            Toast.makeText(this, "Exception is coming--"+e, Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
