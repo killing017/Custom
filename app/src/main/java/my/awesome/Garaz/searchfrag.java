@@ -30,7 +30,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
+
 public class searchfrag extends Fragment {
+
     SearchView searchView;
    searchAdapter flavorAdapter1;
 

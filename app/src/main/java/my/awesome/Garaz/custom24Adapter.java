@@ -1,6 +1,7 @@
 package my.awesome.Garaz;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import java.util.List;
 
 public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHolder> implements Filterable {
     private ArrayList<custom24model> customflavor;
+    SharedPreferences sharedPreferences;
     Context context;
     List<custom24model> list;
 
@@ -46,8 +48,8 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
         holder.add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Sharedpref.getInstance(context).saveitem(customflavor.get(currentPosition));
+                Sharedpref sharedpref= new Sharedpref(context);
+                sharedpref.getInstance(context).saveitem(customflavor.get(currentPosition));
                String price= holder.textView2.getText().toString();
 
                 Toast.makeText(context, "item added successful of price "+price, Toast.LENGTH_SHORT).show();
