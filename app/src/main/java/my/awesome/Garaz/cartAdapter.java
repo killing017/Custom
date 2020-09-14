@@ -2,6 +2,7 @@ package my.awesome.Garaz;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class cartAdapter extends RecyclerView.Adapter<cartAdapter.viewHolder> {
 
@@ -32,17 +35,31 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.viewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull cartAdapter.viewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final cartAdapter.viewHolder holder, final int position) {
         final cartmodel custom24model1= customflavor2.get(position);
         final int currentPosition=position;
-        holder.imageView.setImageResource(custom24model1.getImage());
+        //holder.imageView.setImageResource(custom24model1.getImage());
         holder.textView1.setText(custom24model1.getText());
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
         holder.add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Sharedpref.deleteUser(context);
-                Intent intent=new Intent(context,Custom23.class);
-                context.startActivity(intent);
+
+                editor.remove(holder.textView1.getText().toString());
+
+                editor.apply();
+                notifyDataSetChanged();
+                editor.commit();
+
+                customflavor2.remove(position);
+
+                notifyDataSetChanged();
+
+//                Sharedpref.deleteUser(context);
+//                Intent intent=new Intent(context,Custom23.class);
+//                context.startActivity(intent);
+
                 Toast.makeText(context, "DELETE SUCCESSFULL GO BACK ADD SERVICE", Toast.LENGTH_LONG).show();
 
             }

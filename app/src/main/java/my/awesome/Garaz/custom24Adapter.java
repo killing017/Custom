@@ -19,11 +19,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHolder> implements Filterable {
     private ArrayList<custom24model> customflavor;
-    SharedPreferences sharedPreferences;
+   // SharedPreferences sharedPreferences;
     Context context;
     List<custom24model> list;
+    SharedPreferences sharedPreferences ;
+    int i;
 
     public custom24Adapter(ArrayList<custom24model> customflavor, Context context) {
         this.customflavor = customflavor;
@@ -45,14 +49,22 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
         holder.imageView.setImageResource(custom24model1.getImage());
         holder.textView1.setText(custom24model1.getText());
         //holder.textView2.setText(custom24model1.getText2());
+        sharedPreferences = context.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        final SharedPreferences.Editor myEdit = sharedPreferences.edit();
         holder.add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Sharedpref sharedpref= new Sharedpref(context);
-                sharedpref.getInstance(context).saveitem(customflavor.get(currentPosition));
-               String price= holder.textView2.getText().toString();
 
-                Toast.makeText(context, "item added successful of price "+price, Toast.LENGTH_SHORT).show();
+                myEdit.putString(custom24model1.getText(), custom24model1.getText()+"-"+holder.textView2.getText().toString()+"-"+custom24model1.getImage());
+                // myEdit.putString("json", httpResponseMsg);
+
+                myEdit.apply();
+
+//                Sharedpref sharedpref= new Sharedpref(context);
+//                sharedpref.getInstance(context).saveitem(customflavor.get(currentPosition));
+//               String price= holder.textView2.getText().toString();
+
+                Toast.makeText(context, "item added successful of price "+holder.textView2.getText().toString(), Toast.LENGTH_SHORT).show();
 
             }
         });
