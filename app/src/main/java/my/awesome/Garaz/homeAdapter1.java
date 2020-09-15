@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,7 +50,8 @@ public class homeAdapter1  extends RecyclerView.Adapter<homeAdapter1.viewHolder>
        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               context.startActivity(new Intent(context,Custom24.class));
+              // context.startActivity(new Intent(context,searchfrag.class));
+               Toast.makeText(context, "Soon it will updated", Toast.LENGTH_SHORT).show();
 
            }
        });

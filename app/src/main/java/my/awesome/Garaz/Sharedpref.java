@@ -39,6 +39,7 @@ int counter;
         i++;
     }
    public custom24model getUser(){
+
         SharedPreferences sharedPreferences=mctx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         int i=0;
         custom24model item=new custom24model(sharedPreferences.getInt("id"+i,-1),sharedPreferences.getString("sub"+i,null) );

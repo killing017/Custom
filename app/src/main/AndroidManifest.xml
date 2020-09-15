@@ -19,7 +19,9 @@
         <activity android:name=".MobileVerification" />
         <activity android:name=".Custom15" /> <!-- <activity android:name=".Main2Activity" /> -->
         <activity android:name=".Custom14" />
-        <activity android:name=".Custom3" />
+        <activity android:name=".Custom3" >
+
+        </activity>
         <activity android:name=".Custom2" />
         <activity android:name=".Custom6" />
         <activity android:name=".Custom19" />
@@ -36,7 +38,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Mainscreen" />
+        <activity android:name=".Mainscreen" >
+
+        </activity>
 
         <meta-data
             android:name="com.razorpay.ApiKey"

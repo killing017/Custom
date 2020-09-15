@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -16,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 public class Accountfrag extends Fragment  {
@@ -37,6 +40,8 @@ TextView account;
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_accountfrag, container, false);
      logout=view.findViewById(R.id.logout);
+        final SharedPreferences sharedPreferences2 =this.getActivity().getSharedPreferences("MySharedPref2", MODE_PRIVATE);
+        final SharedPreferences.Editor editor=sharedPreferences2.edit();
      logout.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
@@ -47,8 +52,10 @@ TextView account;
 
                  @Override
                  public void onClick(DialogInterface dialogInterface, int i) {
-                     getActivity().finishAffinity();
-                     System.exit(0);
+                     editor.clear();
+                     editor.apply();
+                    Intent intent=new Intent(getActivity(),Custom3.class);
+                    startActivity(intent);
                  }
              });
 

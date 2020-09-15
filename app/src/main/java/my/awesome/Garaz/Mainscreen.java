@@ -1,6 +1,7 @@
 //package com.example.custom7;
 package my.awesome.Garaz;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -19,12 +20,15 @@ import org.json.JSONObject;
 public class Mainscreen extends AppCompatActivity implements PaymentResultListener {
     private static final String TAG = Mainscreen.class.getSimpleName();
     BottomNavigationView btn;
-
+    float Total;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreen);
-
+        SharedPreferences sharedPreferences1 =Mainscreen.this.getSharedPreferences("ram", MODE_PRIVATE);
+       Total=sharedPreferences1.getFloat("price",0.0f);
+       Total=Total*100;
+        Toast.makeText(this, ""+Total, Toast.LENGTH_SHORT).show();
         Checkout.preload(getApplicationContext());
 
         Homefrag homefrag4=new Homefrag();
@@ -73,6 +77,9 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
             }
         });
     }
+
+
+
     public void startPayment() {
 
         /**
@@ -104,7 +111,7 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
             //options.put("order_id", "order_DBJOWzybf0sJbb");//from response of step 3.
             options.put("theme.color", "#FF0000");
             options.put("currency", "INR");
-            options.put("amount", "500");//pass amount in currency subunits
+            options.put("amount", ""+Total);//pass amount in currency subunits
             options.put("prefill.email", "amanm1408@gmail.com");
             options.put("prefill.contact","1234567089");
             checkout.open(activity, options);

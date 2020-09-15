@@ -35,7 +35,8 @@ import static android.content.Context.MODE_PRIVATE;
 
 
 public class Cartfrag extends Fragment {
-
+Float total=0.0f;
+TextView Total,youpay,payamount;
     private static final String TAG = MainActivity.class.getSimpleName();
    // private ImageView imageView;
     cartAdapter flavorAdapter2;
@@ -54,8 +55,11 @@ Button pay;
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_cartfrag, container, false);
         Checkout.preload(getActivity());
+        Total=view.findViewById(R.id.Total);
+        youpay=view.findViewById(R.id.youpay);
+        payamount=view.findViewById(R.id.payamount);
         SharedPreferences sh =this.getActivity().getSharedPreferences("MySharedPref", MODE_PRIVATE);
-        Toast.makeText(getActivity(), ""+sh.getAll().size(), Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(getActivity(), ""+sh.getAll().size(), Toast.LENGTH_SHORT).show();
 
 
 
@@ -66,11 +70,17 @@ Button pay;
                     entry.getValue().toString());
 
             String[] str=entry.getValue().toString().split("-");
-
-
-
+          //tal=Integer.parseInt(entry.getValue());
+        String tot=str[1];
+        String []tot1=tot.split(" ");
+        String d=tot1[1];
+        total=total+Float.valueOf(d).floatValue();
+            Toast.makeText(getContext(), ""+d, Toast.LENGTH_SHORT).show();
             androidFlavor.add(new cartmodel(100,str[0]));
         }
+        youpay.setText("$"+total);
+        payamount.setText("$"+total);
+        Total.setText("$"+total);
         flavorAdapter2=new cartAdapter(androidFlavor,getContext());
            RecyclerView recyclerView=view.findViewById(R.id.rec1);
             recyclerView.setAdapter(flavorAdapter2);
@@ -81,6 +91,10 @@ Button pay;
             pay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    SharedPreferences sharedPreferences1=getContext().getSharedPreferences("ram",MODE_PRIVATE);
+                    final SharedPreferences.Editor edit=sharedPreferences1.edit();
+                    edit.putFloat("price",total);
+                    edit.apply();
                    // Toast.makeText(getContext(), "gsgalkjjldj;kdjsd", Toast.LENGTH_SHORT).show();
                     ((Mainscreen)getActivity()).startPayment();
                 }

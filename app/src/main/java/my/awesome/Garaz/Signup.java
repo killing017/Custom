@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -135,7 +136,10 @@ public class Signup extends AppCompatActivity {
                 if(httpResponseMsg.contains("200")){
                    // Toast.makeText(Signup.this, httpResponseMsg, Toast.LENGTH_SHORT).show();
                     Toast.makeText(Signup.this, "Logged in successfully !", Toast.LENGTH_SHORT).show();
-
+                   SharedPreferences sharedPreferences2 = Signup.this.getSharedPreferences("MySharedPref2", MODE_PRIVATE);
+                    final SharedPreferences.Editor myEdit = sharedPreferences2.edit();
+                    myEdit.putString("login",httpResponseMsg);
+                    myEdit.apply();
                     startActivity(new Intent(Signup.this,Mainscreen.class));
 
                 }else{

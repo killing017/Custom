@@ -1,81 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="my.awesome.Garaz.Custom3">
+    <TextView
+        android:text="Real time updates and assistance"
+
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#000"
+        android:textSize="30sp"
+        android:background="@drawable/customborder"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:text="Dedicated advisor,genuine spares and warranty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="342dp"
-        android:layout_height="28dp"
+        android:src="@drawable/hundaii"
+        android:layout_margin="20dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
-        android:src="@drawable/realtime"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="369dp"
-        android:layout_height="30dp"
-        android:src="@drawable/dedicated"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.025" />
-
-    <ImageView
-        android:layout_width="263dp"
-        android:layout_height="233dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-
-        android:id="@+id/imageView4"
-        style="@android:style/Widget.Holo.Light.ImageButton"
-        android:layout_width="379dp"
-        android:layout_height="97dp"
-        android:layout_marginBottom="108dp"
-        android:contentDescription="TODO"
-        android:scaleType="fitXY"
-        android:src="@drawable/rect"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.328" />
-
-    <ImageView
-        android:id="@+id/imageView5"
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
-        android:layout_marginBottom="117dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/getstarted"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.159" />
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@drawable/customborder"
+        android:backgroundTint="#2196F3"
+        android:gravity="center"
+        android:id="@+id/skip"
+        android:text="SKIP"
+        android:textColor="#fff"
+        android:textSize="25sp" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/skip"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.915" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
