@@ -55,6 +55,7 @@ public class Signup extends AppCompatActivity {
         startActivity(new Intent(Signup.this,Custom19.class));
 
 
+
     }
 
     public void onClickSignInBtn2(View view){
@@ -140,7 +141,9 @@ public class Signup extends AppCompatActivity {
                     final SharedPreferences.Editor myEdit = sharedPreferences2.edit();
                     myEdit.putString("login",httpResponseMsg);
                     myEdit.apply();
+
                     startActivity(new Intent(Signup.this,Mainscreen.class));
+
 
                 }else{
                     JSONObject jsonObject = null;

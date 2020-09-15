@@ -54,7 +54,7 @@ TextView account;
                  public void onClick(DialogInterface dialogInterface, int i) {
                      editor.clear();
                      editor.apply();
-                    Intent intent=new Intent(getActivity(),Custom3.class);
+                    Intent intent=new Intent(getActivity(),Signup.class);
                     startActivity(intent);
                  }
              });

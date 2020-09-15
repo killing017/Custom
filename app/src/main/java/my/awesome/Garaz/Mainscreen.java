@@ -1,6 +1,8 @@
 //package com.example.custom7;
 package my.awesome.Garaz;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,7 +10,9 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,10 +29,10 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreen);
-        SharedPreferences sharedPreferences1 =Mainscreen.this.getSharedPreferences("ram", MODE_PRIVATE);
-       Total=sharedPreferences1.getFloat("price",0.0f);
-       Total=Total*100;
-        Toast.makeText(this, ""+Total, Toast.LENGTH_SHORT).show();
+//        SharedPreferences sharedPreferences1 =Mainscreen.this.getSharedPreferences("ram", MODE_PRIVATE);
+//       Total=sharedPreferences1.getFloat("price",0.0f);
+//       Total=Total*1000;
+//        Toast.makeText(this, ""+Total, Toast.LENGTH_SHORT).show();
         Checkout.preload(getApplicationContext());
 
         Homefrag homefrag4=new Homefrag();
@@ -69,6 +73,7 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
                     case R.id.cart:
                         Cartfrag cartfrag=new Cartfrag();
                         FragmentTransaction fragmentTransaction7=getSupportFragmentManager().beginTransaction();
+
                         fragmentTransaction7.replace(R.id.l1,cartfrag);
                         fragmentTransaction7.commit();
                         break;
@@ -80,7 +85,7 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
 
 
 
-    public void startPayment() {
+    public void startPayment(Float total) {
 
         /**
          * Instantiate Checkout
@@ -111,7 +116,7 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
             //options.put("order_id", "order_DBJOWzybf0sJbb");//from response of step 3.
             options.put("theme.color", "#FF0000");
             options.put("currency", "INR");
-            options.put("amount", ""+Total);//pass amount in currency subunits
+            options.put("amount", ""+total*100);//pass amount in currency subunits
             options.put("prefill.email", "amanm1408@gmail.com");
             options.put("prefill.contact","1234567089");
             checkout.open(activity, options);
@@ -135,5 +140,29 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
             Toast.makeText(this, "Exception is coming--"+e, Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void onBackPressed() {
+
+        new AlertDialog.Builder(this)
+                .setTitle("Really Exit?")
+                .setMessage("Are you sure you want to exit?")
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Mainscreen.super.onBackPressed();
+                        quit();
+                    }
+                }).create().show();
+    }
+
+
+    public void quit() {
+        Intent start = new Intent(Intent.ACTION_MAIN);
+        start.addCategory(Intent.CATEGORY_HOME);
+        start.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        start.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(start);
     }
 }
