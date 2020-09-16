@@ -182,7 +182,7 @@ public class Homefrag extends DialogFragment {
             protected void onPreExecute() {
                 super.onPreExecute();
 
-                progressDialog1 = ProgressDialog.show(getContext(),"Loading Data",null,true,true);
+                progressDialog1 = ProgressDialog.show(getContext(),"Loading Services",null,true,true);
             }
 
             @Override
@@ -268,7 +268,7 @@ public class Homefrag extends DialogFragment {
             protected void onPreExecute() {
                 super.onPreExecute();
 
-                progressDialog = ProgressDialog.show(getContext(),"Loading Data",null,true,true);
+                progressDialog = ProgressDialog.show(getContext(),"Loading Services",null,true,true);
             }
 
             @Override

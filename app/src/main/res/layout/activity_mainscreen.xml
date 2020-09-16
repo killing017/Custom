@@ -23,6 +23,7 @@
         android:id="@+id/bnav"
         app:menu="@menu/bottomnav"
         android:background="#fff"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        app:labelVisibilityMode="labeled"/>
 
 </RelativeLayout>

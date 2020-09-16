@@ -41,6 +41,7 @@
         android:layout_gravity="center"
         android:layout_margin="20dp"
         android:background="@drawable/customborder"
+        android:backgroundTint="@android:color/holo_orange_dark"
         android:layout_height="wrap_content"/>
 
     <Button

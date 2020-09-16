@@ -74,8 +74,9 @@ Button pay;
         String tot=str[1];
         String []tot1=tot.split(" ");
         String d=tot1[1];
+
         total=total+Float.valueOf(d).floatValue();
-            Toast.makeText(getContext(), ""+d, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getContext(), ""+d, Toast.LENGTH_SHORT).show();
             androidFlavor.add(new cartmodel(100,str[0]));
         }
         youpay.setText("$"+total);
@@ -96,7 +97,7 @@ Button pay;
                     edit.putFloat("price",total);
                     edit.apply();
                    // Toast.makeText(getContext(), "gsgalkjjldj;kdjsd", Toast.LENGTH_SHORT).show();
-                    ((Mainscreen)getActivity()).startPayment();
+                    ((Mainscreen)getActivity()).startPayment(total);
                 }
             });
 

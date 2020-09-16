@@ -10,7 +10,7 @@
     <TextView
         android:text="Book service or repair of choice!"
 
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:textColor="#000"
@@ -33,6 +33,16 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Swipe Right ->>>"
+        android:layout_marginTop="10dp"
+        android:textStyle="italic"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:layout_gravity="center_horizontal"/>
 
 
     <Button

@@ -51,7 +51,7 @@ public class homeAdapter1  extends RecyclerView.Adapter<homeAdapter1.viewHolder>
            @Override
            public void onClick(View v) {
               // context.startActivity(new Intent(context,searchfrag.class));
-               Toast.makeText(context, "Soon it will updated", Toast.LENGTH_SHORT).show();
+               //Toast.makeText(context, "Soon it will updated", Toast.LENGTH_SHORT).show();
 
            }
        });

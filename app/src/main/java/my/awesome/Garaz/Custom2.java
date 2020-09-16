@@ -38,10 +38,14 @@ button.setOnClickListener(new View.OnClickListener() {
                 y2=event.getY();
                 if(x1<x2){
                     Intent intent=new Intent(Custom2.this,Custom3.class);
+
                     startActivity(intent);
+
                 }else if(x1>x2){
                     Intent intent=new Intent(Custom2.this,Custom6.class);
+
                     startActivity(intent);
+
                 }
                 break;
         }
