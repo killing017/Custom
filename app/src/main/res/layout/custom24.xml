@@ -63,7 +63,7 @@
             android:textColor="@android:color/white"
             android:text="Add"
             android:layout_marginLeft="7dp"
-            android:background="@android:color/holo_red_dark"
+            android:backgroundTint="@android:color/holo_red_dark"
             android:textAlignment="center"/>
     </LinearLayout>
 

@@ -67,6 +67,7 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
                         fragmentTransaction3.commit();
                         break;
                     case R.id.cart:
+
                         Cartfrag cartfrag=new Cartfrag();
                         FragmentTransaction fragmentTransaction7=getSupportFragmentManager().beginTransaction();
                         fragmentTransaction7.replace(R.id.l1,cartfrag);
@@ -74,8 +75,14 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
                         break;
                 }
                 return true;
+
             }
         });
+        SharedPreferences sh =Mainscreen.this.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        //   Toast.makeText(getActivity(), ""+sh.getAll().size(), Toast.LENGTH_SHORT).show();
+        int n=sh.getAll().size();
+        btn.getOrCreateBadge(R.id.cart).setNumber(n);
+
     }
 
 
