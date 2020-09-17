@@ -13,7 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -59,7 +62,12 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
                // myEdit.putString("json", httpResponseMsg);
 
                myEdit.apply();
-
+                BottomNavigationView btn;
+                btn=((AppCompatActivity) context).findViewById(R.id.bnav);
+                SharedPreferences sh =context.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+                //   Toast.makeText(getActivity(), ""+sh.getAll().size(), Toast.LENGTH_SHORT).show();
+                int n=sh.getAll().size();
+                btn.getOrCreateBadge(R.id.cart).setNumber(n);
 //                Sharedpref sharedpref= new Sharedpref(context);
 //                sharedpref.getInstance(context).saveitem(customflavor.get(currentPosition));
 //               String price= holder.textView2.getText().toString();

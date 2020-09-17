@@ -18,6 +18,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -60,7 +62,12 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.viewHolder> {
                 fragmentTransaction4.attach(cartfrag);
                 fragmentTransaction4.replace(R.id.l1,cartfrag);
                 fragmentTransaction4.commit();
-
+                BottomNavigationView btn;
+                btn=((AppCompatActivity) context).findViewById(R.id.bnav);
+                SharedPreferences sh =context.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+                //   Toast.makeText(getActivity(), ""+sh.getAll().size(), Toast.LENGTH_SHORT).show();
+                int n=sh.getAll().size();
+                btn.getOrCreateBadge(R.id.cart).setNumber(n);
               /* FragmentManager manager=((AppCompatActivity)context).getSupportFragmentManager();
                 Fragment Cartfrag=manager.findFragmentByTag(my.awesome.Garaz.Cartfrag.getTag());
                 FragmentTransaction fragmentTransaction=manager.beginTransaction();
