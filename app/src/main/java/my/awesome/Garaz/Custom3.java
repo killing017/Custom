@@ -19,6 +19,7 @@ Button button,button2;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom3);
+
        // imageButton=findViewById(R.id.imageView4);
        // imageButton.setOnTouchListener(new View.OnTouchListener() {
         button=findViewById(R.id.skip);

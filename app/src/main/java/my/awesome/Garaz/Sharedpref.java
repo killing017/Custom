@@ -24,27 +24,24 @@ int counter;
         }
         return minstance;
     }
-    public void saveitem(custom24model item){
+    public void saveitem(String key,String s){
 
         SharedPreferences sharedPreferences=mctx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences.edit();
        // counter=sharedPreferences.getInt("count",0);
-        int i=0;
-        editor.putInt("id"+i,item.getImage());
-        editor.putString("sub"+i,item.getText());
+
+        editor.putString(key,s);
       //  editor.putInt("pos",position);
         editor.apply();
         editor.commit();
 
-        i++;
+
     }
-   public custom24model getUser(){
+   public String getUser(){
 
         SharedPreferences sharedPreferences=mctx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        int i=0;
-        custom24model item=new custom24model(sharedPreferences.getInt("id"+i,-1),sharedPreferences.getString("sub"+i,null) );
-        i++;
-        return item;
+
+        return sharedPreferences.getString(SHARED_PREF_NAME,null);
    }
 
     public static void deleteUser(Context mctx){

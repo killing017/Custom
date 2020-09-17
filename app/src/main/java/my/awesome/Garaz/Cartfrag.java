@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -34,7 +35,8 @@ import static android.content.ContentValues.TAG;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class Cartfrag extends Fragment {
+public class Cartfrag extends Fragment  {
+    Tag ram;
 Float total=0.0f;
 TextView Total,youpay,payamount;
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -146,5 +148,6 @@ Button pay;
 //        }
         return view;
     }
+
 
 }

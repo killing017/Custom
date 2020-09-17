@@ -12,6 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -33,7 +37,6 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.viewHolder> {
         View view = LayoutInflater.from(context).inflate(R.layout.cart, parent, false);
         return new cartAdapter.viewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final cartAdapter.viewHolder holder, final int position) {
         final cartmodel custom24model1= customflavor2.get(position);
@@ -45,22 +48,31 @@ public class cartAdapter extends RecyclerView.Adapter<cartAdapter.viewHolder> {
         holder.add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 editor.remove(holder.textView1.getText().toString());
-
                 editor.apply();
                 notifyDataSetChanged();
                 editor.commit();
-
                 customflavor2.remove(position);
-
                 notifyDataSetChanged();
+               Cartfrag cartfrag=new Cartfrag();
+                FragmentTransaction fragmentTransaction4= ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction();
+                fragmentTransaction4.detach(cartfrag);
+                fragmentTransaction4.attach(cartfrag);
+                fragmentTransaction4.replace(R.id.l1,cartfrag);
+                fragmentTransaction4.commit();
 
-//                Sharedpref.deleteUser(context);
-//                Intent intent=new Intent(context,Custom23.class);
-//                context.startActivity(intent);
+              /* FragmentManager manager=((AppCompatActivity)context).getSupportFragmentManager();
+                Fragment Cartfrag=manager.findFragmentByTag(my.awesome.Garaz.Cartfrag.getTag());
+                FragmentTransaction fragmentTransaction=manager.beginTransaction();
+                fragmentTransaction.detach(Cartfrag);
+                fragmentTransaction.attach(Cartfrag);
+               fragmentTransaction.replace( R.id.l1,Cartfrag);
+                fragmentTransaction.commit();*/
+
+
 
                 Toast.makeText(context, "DELETE SUCCESSFULL GO BACK ADD SERVICE", Toast.LENGTH_LONG).show();
+
 
             }
         });

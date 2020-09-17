@@ -34,7 +34,6 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
 //       Total=Total*1000;
 //        Toast.makeText(this, ""+Total, Toast.LENGTH_SHORT).show();
         Checkout.preload(getApplicationContext());
-
         Homefrag homefrag4=new Homefrag();
         FragmentTransaction fragmentTransaction4=getSupportFragmentManager().beginTransaction();
         fragmentTransaction4.replace(R.id.l1,homefrag4);
@@ -67,14 +66,15 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
                     case R.id.account:
                         Accountfrag accountfrag=new Accountfrag();
                         FragmentTransaction fragmentTransaction3=getSupportFragmentManager().beginTransaction();
+
                         fragmentTransaction3.replace(R.id.l1,accountfrag);
                         fragmentTransaction3.commit();
                         break;
                     case R.id.cart:
-
                         Cartfrag cartfrag=new Cartfrag();
                         FragmentTransaction fragmentTransaction7=getSupportFragmentManager().beginTransaction();
-
+                        fragmentTransaction7.detach(cartfrag);
+                        fragmentTransaction7.attach(cartfrag);
                         fragmentTransaction7.replace(R.id.l1,cartfrag);
                         fragmentTransaction7.commit();
                         break;
