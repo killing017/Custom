@@ -93,6 +93,10 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
             }
         });
 
+        SharedPreferences sh =Mainscreen.this.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        //   Toast.makeText(getActivity(), ""+sh.getAll().size(), Toast.LENGTH_SHORT).show();
+        int n=sh.getAll().size();
+        btn.getOrCreateBadge(R.id.cart).setNumber(n);
 
     }
 

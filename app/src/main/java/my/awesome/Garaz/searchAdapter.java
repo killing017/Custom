@@ -1,6 +1,7 @@
 package my.awesome.Garaz;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,9 +59,6 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.viewHolder
                 myEdit.putString(searchModel.getText(), searchModel.getText() + "-" + holder.textView2.getText().toString() + "-" + searchModel.getImage());
                 // myEdit.putString("json", httpResponseMsg);
                 myEdit.apply();
-
-
-
 
                 Toast.makeText(context, "item added successful of price "+holder.textView2.getText().toString(), Toast.LENGTH_SHORT).show();
 
