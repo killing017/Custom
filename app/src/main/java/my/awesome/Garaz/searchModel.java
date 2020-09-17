@@ -1,17 +1,17 @@
 package my.awesome.Garaz;
 
 public class searchModel {
-    int pic;
+    int Image;
     String text;
 
 
 
-    public int getPic() {
-        return pic;
+    public int getImage() {
+        return Image;
     }
 
-    public void setPic(int pic) {
-        this.pic = pic;
+    public void setImage(int image) {
+        this.Image = image;
     }
 
     public String getText() {
@@ -22,9 +22,9 @@ public class searchModel {
         this.text = text;
     }
 
-    public searchModel(int pic, String text) {
+    public searchModel(int image, String text) {
 
-        this.pic = pic;
+        this.Image = image;
         this.text = text;
     }
 

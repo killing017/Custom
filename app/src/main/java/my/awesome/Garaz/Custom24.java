@@ -15,6 +15,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,7 +26,7 @@ import java.util.ArrayList;
 //import com.example.custom7.R;
 
 public class Custom24 extends AppCompatActivity {
-custom24Adapter customAdapter;
+searchAdapter customAdapter;
 String id="";
 String subservice_name;
 
@@ -43,7 +45,7 @@ ProgressDialog progressDialog1;
     JsonHttpParse jsonhttpParse = new JsonHttpParse();
 
 
-    ArrayList<custom24model> customflavor = new ArrayList<custom24model>();
+    ArrayList<searchModel> customflavor1 = new ArrayList<searchModel>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,7 @@ ProgressDialog progressDialog1;
         //final ArrayList<custom24model> customflavor= new ArrayList<custom24model>();
         //customflavor.add(new custom24model(R.drawable.hundaii,"service","subservice","price"));
 
-        customAdapter = new custom24Adapter(customflavor,Custom24.this);
+        customAdapter = new searchAdapter(customflavor1,Custom24.this);
          recyclerView=findViewById(R.id.recyclerview);
         // Get a reference to the ListView, and attach the adapter to the listView.
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(Custom24.this,RecyclerView.VERTICAL,false);
@@ -70,6 +72,7 @@ ProgressDialog progressDialog1;
         getSubSerivices("getAllsubService",id);
 
     }
+
 
     private void getSubSerivices(String getAllsubService, final String id) {
 
@@ -102,10 +105,10 @@ ProgressDialog progressDialog1;
                             JSONObject ob=result.getJSONObject(i);
 
                             // Toast.makeText(FirstActivity.this, ob.getString("name"), Toast.LENGTH_SHORT).show();
-                            custom24model history1=new custom24model(R.drawable.hundaii,ob.getString("sub_service")
+                            searchModel history1=new searchModel(R.drawable.hundaii,ob.getString("sub_service")
                                    );
 
-                            customflavor.add(history1);
+                            customflavor1.add(history1);
                         }
 
 

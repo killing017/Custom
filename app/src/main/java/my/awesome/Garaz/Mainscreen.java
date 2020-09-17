@@ -29,6 +29,8 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreen);
+        btn=findViewById(R.id.bnav);
+
 //        SharedPreferences sharedPreferences1 =Mainscreen.this.getSharedPreferences("ram", MODE_PRIVATE);
 //       Total=sharedPreferences1.getFloat("price",0.0f);
 //       Total=Total*1000;
@@ -38,7 +40,8 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
         FragmentTransaction fragmentTransaction4=getSupportFragmentManager().beginTransaction();
         fragmentTransaction4.replace(R.id.l1,homefrag4);
         fragmentTransaction4.commit();
-        btn=findViewById(R.id.bnav);
+
+
         //NavController navController= Navigation.findNavController(MainScreen.this,R.id.l1);
         btn.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -46,6 +49,7 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
 
                 switch (menuItem.getItemId()){
                     case R.id.home:
+                        btn=findViewById(R.id.bnav);
                         Homefrag homefrag=new Homefrag();
                         FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.l1,homefrag);
@@ -71,22 +75,24 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
                         fragmentTransaction3.commit();
                         break;
                     case R.id.cart:
+
                         Cartfrag cartfrag=new Cartfrag();
                         FragmentTransaction fragmentTransaction7=getSupportFragmentManager().beginTransaction();
                         fragmentTransaction7.detach(cartfrag);
                         fragmentTransaction7.attach(cartfrag);
                         fragmentTransaction7.replace(R.id.l1,cartfrag);
                         fragmentTransaction7.commit();
+                        SharedPreferences sh =Mainscreen.this.getSharedPreferences("MySharedPref", MODE_PRIVATE);
+                        //   Toast.makeText(getActivity(), ""+sh.getAll().size(), Toast.LENGTH_SHORT).show();
+                        int n=sh.getAll().size();
+                        btn.getOrCreateBadge(R.id.cart).setNumber(n);
                         break;
                 }
                 return true;
 
             }
         });
-        SharedPreferences sh =Mainscreen.this.getSharedPreferences("MySharedPref", MODE_PRIVATE);
-        //   Toast.makeText(getActivity(), ""+sh.getAll().size(), Toast.LENGTH_SHORT).show();
-        int n=sh.getAll().size();
-        btn.getOrCreateBadge(R.id.cart).setNumber(n);
+
 
     }
 
