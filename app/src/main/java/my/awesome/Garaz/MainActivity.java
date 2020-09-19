@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent=new Intent(MainActivity.this,Mainscreen.class);
                     startActivity(intent);
                 }else {
-                    Intent intent = new Intent(MainActivity.this, Custom3.class);
+                    Intent intent = new Intent(MainActivity.this, Signup.class);
                     startActivity(intent);
                 }
             }

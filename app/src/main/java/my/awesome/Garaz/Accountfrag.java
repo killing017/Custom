@@ -42,7 +42,8 @@ TextView account;
      logout=view.findViewById(R.id.logout);
         final SharedPreferences sharedPreferences2 =this.getActivity().getSharedPreferences("MySharedPref2", MODE_PRIVATE);
         final SharedPreferences.Editor editor=sharedPreferences2.edit();
-     logout.setOnClickListener(new View.OnClickListener() {
+
+      logout.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
              AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
@@ -64,10 +65,12 @@ TextView account;
                      dialogInterface.dismiss();
                  }
              });
+
              builder.show();
 
          }
      });
+
      account=view.findViewById(R.id.profile);
      account.setOnClickListener(new View.OnClickListener() {
          @Override

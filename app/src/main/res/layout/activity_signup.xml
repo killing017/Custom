@@ -26,7 +26,7 @@
         android:layout_width="248dp"
         android:layout_height="71dp"
         android:hint="Email"
-        android:text="amanm1408@gmail.com"
+
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
@@ -39,7 +39,7 @@
         android:layout_width="248dp"
         android:layout_height="61dp"
         android:hint="Password"
-        android:text="aman@123"
+
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
