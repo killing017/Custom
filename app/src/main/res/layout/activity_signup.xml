@@ -26,7 +26,6 @@
         android:layout_width="248dp"
         android:layout_height="71dp"
         android:hint="Email"
-
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
@@ -39,7 +38,6 @@
         android:layout_width="248dp"
         android:layout_height="61dp"
         android:hint="Password"
-
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,9 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.462" />
-
     <Button
-
         android:id="@+id/signin"
         style="@android:style/Widget.DeviceDefault.Light.ImageButton"
         android:layout_width="250dp"
