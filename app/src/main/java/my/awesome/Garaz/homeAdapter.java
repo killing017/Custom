@@ -21,12 +21,15 @@ public class homeAdapter  extends RecyclerView.Adapter<homeAdapter.viewHolder> {
 
     Context context;
 
+
     public homeAdapter(ArrayList<homemodel> androidFlavors, Context context) {
         this.androidFlavors = androidFlavors;
         this.context = context;
     }
     @NonNull
     @Override
+
+
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.list, parent, false);
         return new viewHolder(view);
@@ -36,9 +39,9 @@ public class homeAdapter  extends RecyclerView.Adapter<homeAdapter.viewHolder> {
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         final homemodel homemodel = androidFlavors.get(position);
         //Picasso.with(context).load(homemodel.getPic()).fit().centerCrop().into(holder.imageView);
-        //Picasso.with(context).load("https://i.imgur.com/tGbaZCY.jpg").fit().centerCrop().into(holder.imageView);
+        Picasso.with(context).load("https://www.cakiweb.com/mechanic/app-admin/service-img/schedule_service_1601015079.jpg").fit().centerInside().into(holder.imageView);
 
-        holder.imageView.setImageResource(homemodel.getDraw_pic());
+        //holder.imageView.setImageResource(homemodel.getDraw_pic());
         holder.textView.setText(homemodel.getText());
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {

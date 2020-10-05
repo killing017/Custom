@@ -149,6 +149,7 @@ public class Homefrag extends DialogFragment {
 
          recyclerView=view.findViewById(R.id.rec);
         recyclerView.setHasFixedSize(true);
+
         recyclerView1=view.findViewById(R.id.rec1);
         recyclerView1.setHasFixedSize(true);
 //        androidFlavors1.add(new homemodel1(R.drawable.caricon,"ram","ram","ram","ram","ram"));
@@ -157,6 +158,7 @@ public class Homefrag extends DialogFragment {
 
         flavorAdapter1 = new homeAdapter1( androidFlavors1, getContext());
         recyclerView1.setAdapter(flavorAdapter1);
+
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
         recyclerView1.setLayoutManager(linearLayoutManager);
         // Get a reference to the ListView, and attach the adapter to the listView.

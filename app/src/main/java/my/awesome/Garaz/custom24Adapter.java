@@ -2,6 +2,7 @@ package my.awesome.Garaz;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,21 +29,21 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
     private ArrayList<custom24model> customflavor;
    // SharedPreferences sharedPreferences;
     Context context;
-    List<custom24model> list;
+    ArrayList<custom24model>  alist;
     SharedPreferences sharedPreferences ;
     int i;
 
-    public custom24Adapter(ArrayList<custom24model> customflavor, Context context) {
-        this.customflavor = customflavor;
+    public custom24Adapter(ArrayList<custom24model> ccustomflavor, Context context,ArrayList<custom24model> alist) {
+        this.customflavor = ccustomflavor;
         this.context = context;
-        list=new ArrayList<>(customflavor);
+       this.alist=alist;
     }
 
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.custom24, parent, false);
-        return new custom24Adapter.viewHolder(view);
+        return new viewHolder(view);
     }
 
     @Override
@@ -87,15 +88,17 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
     public Filter getFilter() {
         return filter;
     }
+
     Filter filter=new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
            List<custom24model> filteredlist = new ArrayList<>();
             if (charSequence.toString().isEmpty()) {
-                filteredlist.addAll(list);
+                filteredlist.addAll(alist);
 
             } else {
-                for (custom24model hm1 : list) {
+                for (custom24model hm1 : alist) {
+                    //Toast.makeText(context, ""+hm1.getText(), Toast.LENGTH_SHORT).show();
                     if (hm1.getText().toLowerCase().contains(charSequence.toString().toLowerCase())) {
 
                         filteredlist.add(hm1);

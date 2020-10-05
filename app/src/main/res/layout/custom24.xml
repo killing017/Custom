@@ -10,7 +10,8 @@
         android:layout_margin="10dp"
         android:layout_gravity="center"
         android:orientation="horizontal"
-        android:background="@drawable/customborder">
+        android:elevation="10dp"
+        android:background="#fff">
 
         <ImageView
             android:layout_width="0dp"

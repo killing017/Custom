@@ -71,25 +71,7 @@ public class searchfrag extends Fragment {
         View view= inflater.inflate(R.layout.fragment_searchfrag, container, false);
         searchView=(SearchView) view.findViewById(R.id.searchView);
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
 
-                if(customflavor.contains(query)){
-                    customAdapter.getFilter().filter(query);
-                }else{
-                    Toast.makeText(getContext(), "No Match found",Toast.LENGTH_LONG).show();
-                }
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                //    adapter.getFilter().filter(newText);
-             //   customAdapter.getFilter().filter(newText);
-                return false;
-            }
-        });
 
   /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
     @Override
@@ -126,14 +108,39 @@ public class searchfrag extends Fragment {
 //        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,true);
 //        recyclerView.setLayoutManager(linearLayoutManager);
 
-        customAdapter = new custom24Adapter(customflavor,getContext());
+
+
+        getSubSerivices("getAllsubService");
+        ArrayList<custom24model>  alist=new ArrayList<custom24model>();
+        alist.addAll(customflavor);
+        customAdapter = new custom24Adapter(customflavor,getContext(),alist);
         recyclerView=view.findViewById(R.id.recyclerview);
         // Get a reference to the ListView, and attach the adapter to the listView.
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(customAdapter);
 
-        getSubSerivices("getAllsubService");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+//                if(customflavor.contains(query)){
+//                    customAdapter.getFilter().filter(query);
+//                }else{
+//                    Toast.makeText(getContext(), "No Match found",Toast.LENGTH_LONG).show();
+//                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Toast.makeText(getContext(), ""+newText, Toast.LENGTH_SHORT).show();
+                //    adapter.getFilter().filter(newText);
+                //   customAdapter.getFilter().filter(newText);
+               customAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
 
         return  view;
     }
