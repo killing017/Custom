@@ -38,18 +38,21 @@ public class homeAdapter  extends RecyclerView.Adapter<homeAdapter.viewHolder> {
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         final homemodel homemodel = androidFlavors.get(position);
-        //Picasso.with(context).load(homemodel.getPic()).fit().centerCrop().into(holder.imageView);
-        Picasso.with(context).load("https://www.cakiweb.com/mechanic/app-admin/service-img/schedule_service_1601015079.jpg").fit().centerInside().into(holder.imageView);
+
+
+
+        Picasso.with(context).load(homemodel.getPic().replace("http","https")).fit().centerInside().into(holder.imageView);
+        //Picasso.with(context).load("https://www.cakiweb.com/mechanic/app-admin/service-img/schedule_service_1601908285.png").fit().centerCrop().into(holder.imageView);
 
         //holder.imageView.setImageResource(homemodel.getDraw_pic());
-        holder.textView.setText(homemodel.getText());
+        holder.textView.setText(homemodel.getText().replace("&amp;","&"));
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                Intent intent=new Intent(context,Custom24.class);
                intent.putExtra("id",homemodel.getId());
-               intent.putExtra("subservice_name",homemodel.getText());
+               intent.putExtra("subservice_name",homemodel.getText().replace("&amp;","&"));
                context.startActivity(intent);
             }
         });

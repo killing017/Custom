@@ -1,122 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-android:background="@drawable/customborder"
-    android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/remove"
-        android:text="Delete"
-        android:textSize="20sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:textColor="#D81B20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    android:orientation="vertical"
+    android:layout_width="320dp"
+    android:elevation="5dp"
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/car1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:scaleType="centerCrop"
-        android:src="@drawable/hundaii" />
-
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="25sp"
-        android:layout_marginTop="5dp"
-        android:text="Honda City IVTEC Petrol" />
-
-    <TextView
-        android:layout_width="94dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_button"
-        android:padding="5dp"
-        android:gravity="center"
-        android:id="@+id/fuel"
-        android:text="PETROL"
-        android:textSize="20dp"
-        android:textColor="#fff"
-        android:textStyle="bold" />
-    <LinearLayout
-        android:layout_marginTop="20dp"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:elevation="5dp">
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="REG.NO"
-            android:layout_marginLeft="20dp"
-            android:padding="5dp"
-            android:textColor="#000000"
-            android:textSize="20sp"/>
-        <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="727dp"
+            android:orientation="vertical">
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <TextView
+                android:id="@+id/remove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Delete"
+                android:textColor="#D81B20"
+                android:textSize="20sp" />
 
-            android:text="R00232"
-            android:layout_marginLeft="60dp"
-            android:textSize="20sp"
-            android:padding="5dp"/>
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
+            <ImageView
+                android:id="@+id/car1"
+                android:layout_width="128dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/hundaii" />
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="YEAR"
-            android:layout_marginLeft="20dp"
-            android:padding="5dp"
-            android:textColor="#000000"
-            android:textSize="20sp"/>
-        <TextView
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:text="Honda City IVTEC Petrol"
+                android:textColor="#F80C0C0C"
+                android:textSize="20sp" />
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:text="2020"
-            android:textSize="20sp"
-            android:padding="5dp"/>
+            <TextView
+                android:id="@+id/fuel"
+                android:layout_width="94dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_button"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="PETROL"
+                android:textColor="#fff"
+                android:textColorHint="#FFEB3B"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#11000000"
+                android:orientation="vertical">
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="KILOMETERS"
-            android:layout_marginLeft="20dp"
-            android:padding="5dp"
-            android:textColor="#000000"
-            android:textSize="20sp"/>
-        <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="20"
-            android:textSize="20sp"
-            android:padding="5dp"/>
+                    <TextView
 
-    </LinearLayout>
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:text="REG.NO"
+                        android:textColor="#CE000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="60dp"
+                        android:layout_weight="3"
+                        android:padding="5dp"
+                        android:text="R00232"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="3"
+                        android:padding="5dp"
+                        android:text="YEAR"
+                        android:textColor="#CF000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="80dp"
+                        android:layout_weight="5.5"
+                        android:padding="5dp"
+                        android:text="2020"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:text="KILOMETERS"
+                        android:textColor="#CF000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:text="20"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

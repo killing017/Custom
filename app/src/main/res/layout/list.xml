@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/linearlayout_services"
-    android:layout_height="130dp">
+    android:layout_height="150dp">
 
     <androidx.cardview.widget.CardView
 
@@ -20,12 +20,18 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:scaleType="centerInside"
                 android:id="@+id/img"
                 android:src="@drawable/promocodecar2"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"/>
             <TextView
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="2dp"
                 android:textSize="15sp"
                 android:id="@+id/tv"
                 android:text="hiii"

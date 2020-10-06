@@ -63,6 +63,8 @@ public class Homefrag extends DialogFragment {
     String[] str;
     String car_select;
 
+    TextView enterlocation;
+
     int no=0;
     Object checkedcar;
     ArrayList<Integer> mUserItems = new ArrayList<>();
@@ -83,6 +85,17 @@ public class Homefrag extends DialogFragment {
 
         car=view.findViewById(R.id.select_car);
         carselected = view.findViewById(R.id.selected_car_name);
+
+        enterlocation=view.findViewById(R.id.enter_location);
+        enterlocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(getActivity(),Add_address.class);
+                startActivity(intent);
+
+            }
+        });
 
         listItems = getResources().getStringArray(R.array.shopping_item);
         checkedItems = new boolean[listItems.length];
@@ -167,6 +180,7 @@ public class Homefrag extends DialogFragment {
         GridLayoutManager gridLayoutManager=new GridLayoutManager(getContext(),3);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(flavorAdapter);
+        //recyclerView.setNestedScrollingEnabled(false);
 
         ServicesFunction("getAllService");
 
@@ -174,6 +188,7 @@ public class Homefrag extends DialogFragment {
 
         return view;
     }
+
 
     private void gettingOffersFunction(final String getAllOffers) {
 

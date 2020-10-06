@@ -12,16 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Myprofile"></activity>
-        <activity android:name=".Location">
+        <activity android:name=".Add_address">
 
-        </activity> <!-- <<<<<<< HEAD -->
+        </activity>
+        <activity android:name=".Myprofile" />
+        <activity android:name=".Location"></activity> <!-- <<<<<<< HEAD -->
         <activity android:name=".MobileVerification" />
         <activity android:name=".Custom15" /> <!-- <activity android:name=".Main2Activity" /> -->
         <activity android:name=".Custom14" />
-        <activity android:name=".Custom3" >
-
-        </activity>
+        <activity android:name=".Custom3"></activity>
         <activity android:name=".Custom2" />
         <activity android:name=".Custom6" />
         <activity android:name=".Custom19" />
@@ -37,15 +36,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Mainscreen" >
 
         </activity>
+        <activity android:name=".Mainscreen"></activity>
 
         <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_YZ0rZv8DFWccCl"/>
-
+            android:value="rzp_test_YZ0rZv8DFWccCl" />
     </application>
 
 </manifest>

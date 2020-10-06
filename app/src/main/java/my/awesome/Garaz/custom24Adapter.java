@@ -94,10 +94,10 @@ public class custom24Adapter extends RecyclerView.Adapter<custom24Adapter.viewHo
         protected FilterResults performFiltering(CharSequence charSequence) {
            List<custom24model> filteredlist = new ArrayList<>();
             if (charSequence.toString().isEmpty()) {
-                filteredlist.addAll(alist);
+                filteredlist.addAll(customflavor);
 
             } else {
-                for (custom24model hm1 : alist) {
+                for (custom24model hm1 : customflavor) {
                     //Toast.makeText(context, ""+hm1.getText(), Toast.LENGTH_SHORT).show();
                     if (hm1.getText().toLowerCase().contains(charSequence.toString().toLowerCase())) {
 
