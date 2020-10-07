@@ -220,9 +220,10 @@ public class Homefrag extends DialogFragment {
                         for (int i=0; i<result.length(); i++ ){
                             JSONObject ob=result.getJSONObject(i);
 
-                            // Toast.makeText(FirstActivity.this, ob.getString("name"), Toast.LENGTH_SHORT).show();
-                            homemodel1 history1=new homemodel1(R.drawable.hundaii,ob.getString("offer_name")
-                                    ,ob.getString("from_date"),ob.getString("to_date"),ob.getString("discount"),ob.getString("promo_code"));
+
+                            Toast.makeText(getActivity(), ob.getString("promo_image"), Toast.LENGTH_SHORT).show();
+                            homemodel1 history1=new homemodel1(R.drawable.promo1,ob.getString("offer_name")
+                                    ,ob.getString("from_date"),ob.getString("to_date"),ob.getString("discount"),ob.getString("promo_code"),ob.getString("promo_image"));
 
                             androidFlavors1.add(history1);
                         }

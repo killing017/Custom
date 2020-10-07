@@ -7,14 +7,24 @@ public class homemodel1 {
     String text2;
     String text3;
     String text4;
+    String image_url;
 
-    public homemodel1(int draw_pic, String text, String text1, String text2, String text3, String text4) {
+    public homemodel1(int draw_pic, String text, String text1, String text2, String text3, String text4,String image_url) {
         this.draw_pic = draw_pic;
         this.text = text;
         this.text1 = text1;
         this.text2 = text2;
         this.text3 = text3;
         this.text4 = text4;
+        this.image_url=image_url;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
     public int getDraw_pic() {
