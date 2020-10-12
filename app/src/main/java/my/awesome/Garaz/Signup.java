@@ -142,7 +142,7 @@ public class Signup extends AppCompatActivity {
                     myEdit.putString("login",httpResponseMsg);
                     myEdit.apply();
 
-                    startActivity(new Intent(Signup.this,Mainscreen.class));
+                    startActivity(new Intent(Signup.this,Initial_address.class));
 
 
                 }else{

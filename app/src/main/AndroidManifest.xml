@@ -12,13 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ReferAndEarn">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Saved_address">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+        <activity android:name=".Initial_address">
+
+        </activity>
+        <activity android:name=".ReferAndEarn" />
         <activity android:name=".Add_address"></activity>
         <activity android:name=".Myprofile" />
         <activity android:name=".Location" /> <!-- <<<<<<< HEAD -->
@@ -35,8 +35,12 @@
         <activity android:name=".Custom8" />
         <activity android:name=".Custom23" />
         <activity android:name=".Signup" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Mainscreen" />
 

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Saved_address">
+
+    <RelativeLayout
+
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:elevation="10dp"
+        android:background="#F5F0E0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/pick_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_location_on_red"
+                android:drawablePadding="10dp"
+                android:text="Pickup Address"/>
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/pick_add"
+
+               android:layout_marginStart="35dp"
+                android:text="Patrapada , Bhubaneshwar , Odissa"/>
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:onClick="edit_address"
+            android:layout_marginEnd="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="edit"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="60dp"
+        android:text="Choose your preferred date &amp; time"/>
+
+    <LinearLayout
+        android:layout_marginStart="@dimen/spacing_standard_new"
+        android:layout_marginEnd="@dimen/spacing_standard_new"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <TextView android:text="07 SUN"
+            android:gravity="center_horizontal"
+            android:id="@+id/textview1"
+            android:padding="10dp"
+
+            android:background="@drawable/bg_rounded_border_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"/>
+
+        <TextView
+            android:text="08 MON"
+            android:gravity="center_horizontal"
+            android:id="@+id/textview2"
+            android:layout_marginLeft="2dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_rounded_border_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"/>
+
+        <TextView android:text="09 TUE"
+            android:gravity="center_horizontal"
+            android:id="@+id/textview3"
+            android:layout_marginLeft="2dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_rounded_border_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"/>
+
+        <TextView android:text="10 WED"
+            android:gravity="center_horizontal"
+            android:id="@+id/textview4"
+            android:background="@drawable/bg_rounded_border_edittext"
+            android:layout_marginLeft="2dp"
+            android:padding="10dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"/>
+
+
+        <!--            <EditText-->
+        <!--                android:id="@+id/edDigit2"-->
+        <!--                style="@style/cardNumberEditText"-->
+        <!--                android:layout_marginStart="@dimen/spacing_standard" />-->
+
+        <!--            <EditText-->
+        <!--                android:id="@+id/edDigit3"-->
+        <!--                style="@style/cardNumberEditText"-->
+
+        <!--                android:layout_marginStart="@dimen/spacing_standard" />-->
+
+        <!--            <EditText-->
+        <!--                android:id="@+id/edDigit4"-->
+        <!--                style="@style/cardNumberEditText"-->
+
+        <!--                android:layout_marginStart="@dimen/spacing_standard" />-->
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginStart="@dimen/spacing_standard_new"
+        android:layout_marginEnd="@dimen/spacing_standard_new"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/morning"
+            android:padding="10dp"
+            android:text="9 P.M - 12 P.M"
+            android:gravity="center_horizontal"
+            android:background="@drawable/bg_rounded_border_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:id="@+id/afternoon"
+            android:text="12 P.M - 3 P.M"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_rounded_border_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"/>
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginStart="@dimen/spacing_standard_new"
+        android:layout_marginEnd="@dimen/spacing_standard_new"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/evening"
+            android:padding="10dp"
+            android:text="3 P.M - 6 P.M"
+            android:gravity="center_horizontal"
+            android:background="@drawable/bg_rounded_border_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"/>
+
+        <TextView
+            android:id="@+id/night"
+            android:text="6 P.M - 9 P.M"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:padding="10dp"
+            android:background="@drawable/bg_rounded_border_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"/>
+
+
+
+
+
+    </LinearLayout>
+    <Button
+        android:onClick="proceed_btn"
+        android:id="@+id/btnSaveAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="@dimen/spacing_standard_new"
+        android:layout_marginEnd="@dimen/spacing_standard_new"
+        android:layout_marginBottom="30dp"
+        android:text="Proceed" />
+
+
+</LinearLayout>

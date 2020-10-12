@@ -43,9 +43,10 @@
 
        <ImageView
            android:layout_marginTop="20dp"
+           android:scaleType="centerInside"
            android:layout_width="150dp"
-           android:layout_height="180dp"
-           android:src="@drawable/refer_icon"/>
+           android:layout_height="100dp"
+           android:src="@drawable/refer"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -63,7 +64,7 @@ you refer"
             android:textColor="#504848"
             android:textSize="18sp"
             android:fontFamily="sans-serif-condensed-medium"
-            android:text="Get a friend to start using GoMechanic today and earn $50 when they complete their first order."/>
+            android:text="Get a friend to start using Mr.Garaz today and earn $50 when they complete their first order."/>
 
         <TextView
             android:layout_marginTop="17dp"
@@ -85,19 +86,14 @@ you refer"
             android:background="@drawable/customborder"
             android:layout_marginRight="20dp"/>
 
-        <TextView
+        <ImageView
+            android:src="@drawable/whatsappwhole"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Share via WhatsApp"
-            android:drawableLeft="@drawable/whatsappdrawable"
-            android:drawablePadding="10dp"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            android:background="@drawable/whatsappbg"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:scaleType="fitXY"
+
             android:layout_marginRight="20dp"/>
 
 

@@ -11,31 +11,32 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:onClick="gps"
-            android:id="@+id/rlUseCurrentLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bg_rectangle"
-            android:backgroundTint="@color/editText_background"
-            android:padding="10dp">
+<!--        <RelativeLayout-->
+<!--            android:onClick="gps"-->
+<!--            android:id="@+id/rlUseCurrentLocation"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="35dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:background="@drawable/bg_rectangle"-->
+<!--            android:backgroundTint="@color/editText_background"-->
+<!--            android:padding="10dp">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:drawableLeft="@drawable/example"
-                android:drawablePadding="8dp"
-                android:drawableTint="@color/radiobuttonTint"
-                android:gravity="center"
-                android:text="Use Current Location"
-                android:textColor="@color/radiobuttonTint"
-                android:textSize="16sp"
-                tools:ignore="MissingPrefix" />
-        </RelativeLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:drawableLeft="@drawable/example"-->
+<!--                android:drawablePadding="8dp"-->
+<!--                android:drawableTint="@color/radiobuttonTint"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Use Current Location"-->
+<!--                android:textColor="@color/radiobuttonTint"-->
+<!--                android:textSize="16sp"-->
+<!--                tools:ignore="MissingPrefix" />-->
+<!--        </RelativeLayout>-->
+
         <RelativeLayout
 
             android:layout_width="match_parent"
@@ -76,24 +77,24 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_standard_new"
-            android:layout_marginEnd="@dimen/spacing_standard_new"
-            android:layout_marginTop="@dimen/spacing_standard_new">
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/spacing_standard_new"-->
+<!--            android:layout_marginEnd="@dimen/spacing_standard_new"-->
+<!--            android:layout_marginTop="@dimen/spacing_standard_new">-->
 
-            <EditText
-                android:padding="14dp"
-                android:id="@+id/edtAddress2"
-                style="@style/TextInputEditTextStyle"
-                android:singleLine="false"
-                />
-            <TextView
-                android:text="Address Line 2"
-                style="@style/TextInputLayoutStyle" />
+<!--            <EditText-->
+<!--                android:padding="14dp"-->
+<!--                android:id="@+id/edtAddress2"-->
+<!--                style="@style/TextInputEditTextStyle"-->
+<!--                android:singleLine="false"-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:text="Address Line 2"-->
+<!--                style="@style/TextInputLayoutStyle" />-->
 
-        </RelativeLayout>
+<!--        </RelativeLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -197,6 +198,8 @@
 
 
         </LinearLayout>
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -217,6 +220,160 @@
                 style="@style/TextInputLayoutStyle" />
 
         </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="10dp"
+            android:text="Choose your preferred date &amp; time"/>
+
+        <LinearLayout
+            android:layout_marginStart="@dimen/spacing_standard_new"
+            android:layout_marginEnd="@dimen/spacing_standard_new"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView android:text="07 SUN"
+                android:gravity="center_horizontal"
+                android:id="@+id/textview1"
+                android:padding="10dp"
+
+                android:background="@drawable/bg_rounded_border_edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"/>
+
+            <TextView
+                android:text="08 MON"
+                android:gravity="center_horizontal"
+                android:id="@+id/textview2"
+                android:layout_marginLeft="2dp"
+                android:padding="10dp"
+                android:background="@drawable/bg_rounded_border_edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"/>
+
+            <TextView android:text="09 TUE"
+                android:gravity="center_horizontal"
+                android:id="@+id/textview3"
+                android:layout_marginLeft="2dp"
+                android:padding="10dp"
+                android:background="@drawable/bg_rounded_border_edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"/>
+
+            <TextView android:text="10 WED"
+                android:gravity="center_horizontal"
+                android:id="@+id/textview4"
+                android:background="@drawable/bg_rounded_border_edittext"
+                android:layout_marginLeft="2dp"
+                android:padding="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"/>
+
+
+<!--            <EditText-->
+<!--                android:id="@+id/edDigit2"-->
+<!--                style="@style/cardNumberEditText"-->
+<!--                android:layout_marginStart="@dimen/spacing_standard" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/edDigit3"-->
+<!--                style="@style/cardNumberEditText"-->
+
+<!--                android:layout_marginStart="@dimen/spacing_standard" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/edDigit4"-->
+<!--                style="@style/cardNumberEditText"-->
+
+<!--                android:layout_marginStart="@dimen/spacing_standard" />-->
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginStart="@dimen/spacing_standard_new"
+            android:layout_marginEnd="@dimen/spacing_standard_new"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/morning"
+                android:padding="10dp"
+                android:text="9 P.M - 12 P.M"
+                android:gravity="center_horizontal"
+                android:background="@drawable/bg_rounded_border_edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"/>
+
+            <TextView
+                android:id="@+id/afternoon"
+                android:text="12 P.M - 3 P.M"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="5dp"
+                android:padding="10dp"
+                android:background="@drawable/bg_rounded_border_edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"/>
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginStart="@dimen/spacing_standard_new"
+            android:layout_marginEnd="@dimen/spacing_standard_new"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/evening"
+                android:padding="10dp"
+                android:text="3 P.M - 6 P.M"
+                android:gravity="center_horizontal"
+                android:background="@drawable/bg_rounded_border_edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"/>
+
+            <TextView
+                android:id="@+id/night"
+                android:text="6 P.M - 9 P.M"
+                android:gravity="center_horizontal"
+                android:layout_marginLeft="5dp"
+                android:padding="10dp"
+                android:background="@drawable/bg_rounded_border_edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"/>
+
+
+
+
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnSaveAddress"
@@ -226,6 +383,7 @@
             android:layout_marginTop="@dimen/spacing_large"
             android:layout_marginStart="@dimen/spacing_standard_new"
             android:layout_marginEnd="@dimen/spacing_standard_new"
-            android:text="Save Address" />
+            android:layout_marginBottom="30dp"
+            android:text="Proceed" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
