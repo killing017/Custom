@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -33,6 +34,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 public class Homefrag extends DialogFragment {
@@ -81,17 +84,24 @@ public class Homefrag extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =inflater.inflate(R.layout.fragment_homefrag, container, false);
+        View view = inflater.inflate(R.layout.fragment_homefrag, container, false);
 
-        car=view.findViewById(R.id.select_car);
+        car = view.findViewById(R.id.select_car);
         carselected = view.findViewById(R.id.selected_car_name);
 
-        enterlocation=view.findViewById(R.id.enter_location);
+        enterlocation = view.findViewById(R.id.enter_location);
+        SharedPreferences savelocation =this.getActivity().getSharedPreferences("location", MODE_PRIVATE);
+        String loc = savelocation.getString("location", null);
+        if (loc != null) {
+            enterlocation.setText(loc);
+        } else{
+            Toast.makeText(getActivity(), "not", Toast.LENGTH_SHORT).show();
+    }
         enterlocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(getActivity(),Add_address.class);
+                Intent intent=new Intent(getActivity(),Initial_address.class);
                 startActivity(intent);
 
             }

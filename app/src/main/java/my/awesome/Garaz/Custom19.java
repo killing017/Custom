@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -52,6 +53,12 @@ public class Custom19 extends AppCompatActivity {
 
         if(CheckEditText){
 
+            SharedPreferences sharedPreferences1=Custom19.this.getSharedPreferences("profie",MODE_PRIVATE);
+            final SharedPreferences.Editor edit=sharedPreferences1.edit();
+            edit.putString("name",strname);
+            edit.putString("email",stremail);
+            edit.putString("phone",strphone);
+            edit.apply();
             // If EditText is not empty and CheckEditText = True then this block will execute.
 
             UserRegisterFunction("registerUser",strname,stremail, strphone, strpassword);
@@ -106,6 +113,7 @@ public class Custom19 extends AppCompatActivity {
                 boolean msg=httpResponseMsg.contains("200");
 
                 if(msg){
+
                     JSONObject jsonObject = null;
                     try {
                         jsonObject = new JSONObject(httpResponseMsg);

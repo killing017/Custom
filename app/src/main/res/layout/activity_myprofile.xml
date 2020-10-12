@@ -7,128 +7,173 @@
     android:layout_height="match_parent"
     tools:context=".Myprofile">
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
         android:text="My Profile"
-        android:textAlignment="center"
-        android:layout_gravity="center"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/custom_button"
-        android:textColor="#1e2ed9"
-        android:textSize="45sp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="NAME"
+        android:textSize="18sp"
         android:textColor="#000"
-        android:textSize="22sp"
-        android:layout_marginTop="20dp"
-
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    <EditText
-        android:id="@+id/name"
-        android:inputType="text"
-        android:layout_marginLeft="20dp"
-        android:layout_width="match_parent"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content" />
-    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="Email Address"
-        android:textColor="#000"
-        android:textSize="22sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_marginLeft="20dp"
-        android:inputType="textEmailAddress"
+        android:layout_height="wrap_content"/>
+    <androidx.cardview.widget.CardView
+        android:elevation="7dp"
         android:layout_width="match_parent"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:textColor="#000"
-        android:text="Phone No."
-        android:textSize="22sp"
+        android:layout_margin="10dp"
+        android:layout_height="match_parent">
 
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-    <EditText
-        android:id="@+id/phone"
-        android:inputType="number"
-        android:layout_marginLeft="20dp"
-        android:layout_width="match_parent"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="Password"
-        android:textSize="22sp"
-        android:textColor="#000"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_marginLeft="20dp"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_marginRight="20dp"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="Gender"
-        android:textColor="#000"
-        android:textSize="22sp"
-
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp">
-
-        <RadioGroup
-            android:orientation="horizontal"
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_margin="10dp"
+                android:text="PERSONAL DETAILS"
+                android:textSize="14sp"
+                android:textColor="#000"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.5"/>
+            <View
 
-            android:layout_height="wrap_content" >
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#51000000" />
 
-            <RadioButton
-                android:id="@+id/radioButton"
-                android:layout_width="0dp"
-                android:layout_weight="3"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="NAME"
+                android:textColor="#D0000000"
+                android:textSize="14sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:hint="customer name"
+                android:id="@+id/name"
+                android:gravity="center_vertical"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_rectangle"
+                android:layout_weight="1.5"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:text="EMAIL ADDRESS"
+                android:textColor="#D1000000"
+                android:textSize="14sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:hint="killingmachine1128@gmail.com"
+                android:id="@+id/email"
+                android:textColor="#000"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_rectangle"
+                android:layout_weight="1.5"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="MOBILE NO"
+                android:textColor="#D1000000"
+                android:textSize="14sp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_rectangle"
+                android:layout_weight="1.5">
+                <TextView
+                    android:text="+91"
+                    android:id="@+id/code"
+                    android:textColor="#000"
+                    android:layout_marginLeft="6dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+                <View
+                    android:layout_margin="5dp"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#51000000" />
+
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/phone"
+                android:hint="9876543210"
+                android:layout_marginLeft="8dp"
+               android:textColor="#000"
+                android:textSize="16sp"
+                />
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="DATE OF BIRTH"
+                android:textColor="#D1000000"
+                android:textSize="14sp" />
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:text="Switch" />
 
-                android:text="Male" />
+            <EditText
+                android:layout_width="match_parent"
+                android:hint="customer DOB"
+                android:textSize="16sp"
+                android:layout_margin="10dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_rectangle"
+                android:layout_weight="1.5"/>
 
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="0dp"
-                android:layout_weight="3"
-                android:layout_height="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="GENDER"
+                android:textColor="#D1000000"
+                android:textSize="14sp" />
+           <RadioGroup
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:orientation="horizontal"
+               android:layout_margin="10dp"
+               android:layout_weight="1">
 
-                android:text="Female"
-                android:textSize="20sp" />
+               <RadioButton
+                   android:text="Male"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
 
-            <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="0dp"
-                android:layout_weight="3"
-                android:layout_height="wrap_content"
-                android:text="Other"
-                android:textSize="20sp" />
-        </RadioGroup>
-    </RelativeLayout>
+               <RadioButton
+                   android:layout_marginLeft="5dp"
+                   android:text="Female"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+
+           </RadioGroup>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

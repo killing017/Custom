@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class Saved_address extends AppCompatActivity {
     String dateselected;
@@ -27,8 +31,30 @@ public class Saved_address extends AppCompatActivity {
         textView2=findViewById(R.id.textview2);
         textView3=findViewById(R.id.textview3);
         textView4=findViewById(R.id.textview4);
+        Calendar calendar= Calendar.getInstance();
+        Date currentdate= calendar.getTime();
+        String date=""+currentdate;
+        String a[]=date.split(" ");
+        textView.setText(a[2]+" "+a[0]);
+        calendar.add(Calendar.DATE,1);
+        Date future=calendar.getTime();
+        String date1=""+future;
+        String b[]=date1.split(" ");
+        textView2.setText(b[2]+" "+b[0]);
+        calendar.add(Calendar.DATE,1);
+        Date future2=calendar.getTime();
+        String date2=""+future2;
+        String c[]=date2.split(" ");
+        textView3.setText(c[2]+" "+c[0]);
+        calendar.add(Calendar.DATE,1);
+        Date future3=calendar.getTime();
+        String date3=""+future3;
+        String d[]=date3.split(" ");
+        textView4.setText(d[2]+" "+d[0]);
 
-        time1=findViewById(R.id.morning);
+
+
+
         time2=findViewById(R.id.afternoon);
         time3=findViewById(R.id.evening);
         time4=findViewById(R.id.night);
@@ -93,7 +119,11 @@ public class Saved_address extends AppCompatActivity {
 //
             }
         });
-
+        time1=findViewById(R.id.morning);
+       // time1.setVisibility(View.INVISIBLE);
+//        int t1=Integer.parseInt(time1.getText().toString());
+        Calendar calendar1= Calendar.getInstance();
+        int hour= calendar1.getTime().getHours();
         time1.setOnClickListener(new View.OnClickListener() {
 
 
@@ -168,7 +198,9 @@ public class Saved_address extends AppCompatActivity {
     }
 
     public void proceed_btn(View view) {
-
+        SharedPreferences sh =Saved_address.this.getSharedPreferences("ram", MODE_PRIVATE);
+        Float amount=sh.getFloat("price",0.00f);
+        //here set amount to layout and do payment;
         // proceed to pay.
 
 

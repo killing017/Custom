@@ -16,6 +16,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"/>
 
+
     <androidx.cardview.widget.CardView
         android:elevation="7dp"
         android:layout_width="match_parent"
@@ -50,8 +51,8 @@
                     android:layout_weight="4"
                     android:gravity="center_vertical"
                     android:text="My Profile"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
+                    android:textColor="#DD000000"
+                    android:textSize="14sp" />
 
 
             </LinearLayout>
@@ -83,9 +84,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:gravity="center_vertical"
-                    android:text="My CARS"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
+                    android:text="My Cars"
+                    android:textColor="#DE000000"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View
@@ -115,9 +116,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:gravity="center_vertical"
-                    android:text="SUBSCRIPTION"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
+                    android:text="Subscription"
+                    android:textColor="#DE000000"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View
@@ -147,9 +148,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:gravity="center_vertical"
-                    android:text="REFER AND EARN"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
+                    android:text="Refer And Earn"
+                    android:textColor="#DE000000"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View
@@ -180,9 +181,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:gravity="center_vertical"
-                    android:text="ORDER HISTORY"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
+                    android:text="Order History"
+                    android:textColor="#DE000000"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View
@@ -213,9 +214,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:gravity="center_vertical"
-                    android:text="NOTIFICATION"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
+                    android:text="Notification"
+                    android:textColor="#DE000000"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View
@@ -246,9 +247,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:gravity="center_vertical"
-                    android:text="HELP AND SUPPORT"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
+                    android:text="Help And Support"
+                    android:textColor="#DE000000"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View
@@ -278,9 +279,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:gravity="center_vertical"
-                    android:text="SHARE MR.GARAZ"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
+                    android:text="Share Mr.Garaz"
+                    android:textColor="#DE000000"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <View
@@ -311,9 +312,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:gravity="center_vertical"
-                    android:text="LOGOUT"
-                    android:textColor="#000"
-                    android:textSize="15sp" />
+                    android:text="Logout"
+                    android:textColor="#DE000000"
+                    android:textSize="14sp" />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
