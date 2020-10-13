@@ -98,8 +98,12 @@ Button pay;
                     final SharedPreferences.Editor edit=sharedPreferences1.edit();
                     edit.putFloat("price",total);
                     edit.apply();
+
+                    Intent intent=new Intent(getActivity(),Saved_address.class);
+                    intent.putExtra("amount",total);
+                    startActivity(intent);
                    // Toast.makeText(getContext(), "gsgalkjjldj;kdjsd", Toast.LENGTH_SHORT).show();
-                    ((Mainscreen)getActivity()).startPayment(total);
+                    //((Mainscreen)getActivity()).startPayment(total);
                 }
             });
 

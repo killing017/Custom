@@ -93,8 +93,10 @@ public class Homefrag extends DialogFragment {
         SharedPreferences savelocation =this.getActivity().getSharedPreferences("location", MODE_PRIVATE);
         String loc = savelocation.getString("location", null);
         if (loc != null) {
+
             enterlocation.setText(loc);
         } else{
+
             Toast.makeText(getActivity(), "not", Toast.LENGTH_SHORT).show();
     }
         enterlocation.setOnClickListener(new View.OnClickListener() {
