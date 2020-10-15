@@ -6,31 +6,77 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.TestLooperManager;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Myprofile extends AppCompatActivity {
-    TextView name , email , phone, password;
+    TextView name2 , email2 , phone2, password;
+    String name,email,phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myprofile);
-        name=findViewById(R.id.name);
-        email=findViewById(R.id.email);
-        phone=findViewById(R.id.phone);
-        SharedPreferences sharedPreferences1=Myprofile.this.getSharedPreferences("profie",MODE_PRIVATE);
-         String Name=sharedPreferences1.getString("name",null);
+        name2=findViewById(R.id.name);
+        email2=findViewById(R.id.email);
+        phone2=findViewById(R.id.phone);
 
-         String Email=sharedPreferences1.getString("email",null);
+        SharedPreferences sharedPreferences2 = Myprofile.this.getSharedPreferences("MySharedPref2", MODE_PRIVATE);
 
-         String Phone=sharedPreferences1.getString("phone",null);
+        String httpResponseMsg=sharedPreferences2.getString("login","");
+        JSONObject jsonObject = null;
+        JSONObject jsonObject2 = null;
+        try {
+            jsonObject = new JSONObject(httpResponseMsg);
 
-         if(sharedPreferences1!=null){
-             name.setText(Name);
-             email.setText(Email);
-             phone.setText(Phone);
-         }
+            String result=jsonObject.getString("result");
+
+            Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
+            
+                jsonObject2=new JSONObject(result);
+
+
+
+            ;
+             email = jsonObject2.getString("customer_email");
+             phone = jsonObject2.getString("customer_mobile");
+
+            Toast.makeText(this, ""+email+"--"+phone, Toast.LENGTH_SHORT).show();
+//
+//            Log.d("name",name);
+//            Log.d("email",email);
+//            Log.d("phone",phone);
+
+
+
+
+
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+//        SharedPreferences sharedPreferences1=Myprofile.this.getSharedPreferences("profie",MODE_PRIVATE);
+//         String Name=sharedPreferences1.getString("name",null);
+//
+//         String Email=sharedPreferences1.getString("email",null);
+//
+//         String Phone=sharedPreferences1.getString("phone",null);
+//
+//
+
+//         if(sharedPreferences1!=null){
+
+//         }
+        name2.setText(name);
+        email2.setText(email);
+        phone2.setText(phone);
 
     }
 }

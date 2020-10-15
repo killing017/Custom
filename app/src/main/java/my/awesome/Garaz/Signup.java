@@ -43,8 +43,6 @@ public class Signup extends AppCompatActivity {
         password=findViewById(R.id.password);
         signin=findViewById(R.id.signin);
 
-
-
 //        stremail=email.getText().toString();
 //        strpassword=password.getText().toString();
 
