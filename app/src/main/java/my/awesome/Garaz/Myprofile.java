@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,34 +30,28 @@ public class Myprofile extends AppCompatActivity {
 
         String httpResponseMsg=sharedPreferences2.getString("login","");
         JSONObject jsonObject = null;
-        JSONObject jsonObject2 = null;
+       
         try {
             jsonObject = new JSONObject(httpResponseMsg);
 
-            String result=jsonObject.getString("result");
-
-            Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
-            
-                jsonObject2=new JSONObject(result);
+            JSONArray array = jsonObject.getJSONArray("result");
 
 
 
-            ;
-             email = jsonObject2.getString("customer_email");
-             phone = jsonObject2.getString("customer_mobile");
+            for (int i = 0; i < array.length(); i++) {
+                            JSONObject ob = array.getJSONObject(i);
+                            name=ob.getString("customer_name");
+                            email=ob.getString("customer_email");
+                            phone=ob.getString("customer_mobile");
+
+
+                        }
+
+
+
+
 
             Toast.makeText(this, ""+email+"--"+phone, Toast.LENGTH_SHORT).show();
-//
-//            Log.d("name",name);
-//            Log.d("email",email);
-//            Log.d("phone",phone);
-
-
-
-
-
-
-
 
         } catch (JSONException e) {
             e.printStackTrace();
