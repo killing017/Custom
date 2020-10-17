@@ -108,10 +108,13 @@ Button pay;
 
         Map<String, ?> bookitems = sh.getAll();
 
-        HashSet<Integer> sch_service_set=new HashSet<>();
-        HashSet<Integer> service_id=new HashSet<>();
-        HashSet<Integer> cost=new HashSet<>();
-        HashSet<String> service_name=new HashSet<>();
+        ArrayList<Integer> sch_service_set=new ArrayList<>();
+        ArrayList<Integer> service_id=new ArrayList<>();
+        ArrayList<Integer> cost=new ArrayList<>();
+        ArrayList<String> service_name=new ArrayList<>();
+
+        //these values will be used in jsoninputstring in background function
+
 
 
         for(Map.Entry<String, ?> entry : bookitems.entrySet()){
@@ -152,7 +155,7 @@ Button pay;
                     edit.putFloat("price",total);
                     edit.apply();
 
-                    Toast.makeText(getContext(), messege, Toast.LENGTH_SHORT).show();
+
 
                     Intent intent=new Intent(getActivity(),Saved_address.class);
                     intent.putExtra("amount",total);
@@ -190,20 +193,16 @@ Button pay;
                     try {
                         jsonObject = new JSONObject(httpResponseMsg);
                          messege= jsonObject.getString("booking_id");
+                         //handle this booking id as it will be used in next step
 
-                       // Toast.makeText(getContext(), messege, Toast.LENGTH_SHORT).show();
 
-                        //Toast.makeText(Custom19.this, messege, Toast.LENGTH_SHORT).show();
 
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
-                    //Toast.makeText(, "", Toast.LENGTH_SHORT).show();
 
-
-                   // startActivity(new Intent(getContext(),Initial_address.class));
 
 
                 }else{
@@ -211,6 +210,9 @@ Button pay;
                     try {
                         jsonObject = new JSONObject(httpResponseMsg);
                         String messege = jsonObject.getString("msg");
+
+
+
                         Toast.makeText(getContext(), messege, Toast.LENGTH_SHORT).show();
 
 
