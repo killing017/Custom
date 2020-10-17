@@ -103,9 +103,10 @@ public class MobileVerification extends AppCompatActivity {
                 progressDialog.dismiss();
                 boolean msg=httpResponseMsg.contains("200");
 
-                Toast.makeText(MobileVerification.this, "Account created succesfully !", Toast.LENGTH_SHORT).show();
+
 
                 if(msg){
+                    Toast.makeText(MobileVerification.this, "Account created succesfully !", Toast.LENGTH_SHORT).show();
                   Intent intent=new Intent(MobileVerification.this,Signup.class);
                   startActivity(intent);
                 }

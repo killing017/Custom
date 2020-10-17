@@ -111,9 +111,7 @@ public class Signup extends AppCompatActivity {
 
         public void UserLoginFunction(final String method,final String Email, final String Password){
 
-
-
-        class UserLoginClass extends AsyncTask<String,Void,String> {
+             class UserLoginClass extends AsyncTask<String,Void,String> {
 
 
             @Override

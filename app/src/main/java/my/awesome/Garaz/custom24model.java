@@ -2,32 +2,67 @@ package my.awesome.Garaz;
 
 public class custom24model {
     int Image;
-    String Text;
+    String text;
+    String sch_service_id;
+    String service_id;
+    String price;
+    String img;
 
-
-    public custom24model(int image, String text) {
-
+    public custom24model(int image, String text, String sch_service_id, String service_id, String price, String img) {
         Image = image;
-        Text = text;
-
+        this.text = text;
+        this.sch_service_id = sch_service_id;
+        this.service_id = service_id;
+        this.price = price;
+        this.img = img;
     }
-
-
 
     public int getImage() {
         return Image;
     }
 
     public void setImage(int image) {
-        Image = image;
+        this.Image = image;
     }
 
     public String getText() {
-        return Text;
+        return text;
     }
 
     public void setText(String text) {
-        Text = text;
+        this.text = text;
+    }
+
+    public String getSch_service_id() {
+        return sch_service_id;
+    }
+
+    public void setSch_service_id(String sch_service_id) {
+        this.sch_service_id = sch_service_id;
+    }
+
+    public String getService_id() {
+        return service_id;
+    }
+
+    public void setService_id(String service_id) {
+        this.service_id = service_id;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
 

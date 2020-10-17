@@ -1,13 +1,17 @@
 package my.awesome.Garaz;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.nfc.Tag;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,9 +30,11 @@ import com.razorpay.PaymentData;
 import com.razorpay.PaymentResultListener;
 import com.razorpay.PaymentResultWithDataListener;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
@@ -37,6 +43,9 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Cartfrag extends Fragment  {
     Tag ram;
+
+    String messege;
+
 Float total=0.0f;
 TextView Total,youpay,payamount;
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -46,6 +55,9 @@ TextView Total,youpay,payamount;
 //private Button button;
 Button pay;
     final ArrayList<cartmodel> androidFlavor=new ArrayList<>();
+    JsonHttpParse jsonhttpParse = new JsonHttpParse();
+    String HttpURL = "https://www.cakiweb.com/mechanic/json-api/api.php";
+    String finalResult ;
     public Cartfrag() {
         // Required empty public constructor
     }
@@ -81,77 +93,158 @@ Button pay;
             //Toast.makeText(getContext(), ""+d, Toast.LENGTH_SHORT).show();
             androidFlavor.add(new cartmodel(100,str[0]));
         }
+
         youpay.setText("$"+total);
         payamount.setText("$"+total);
         Total.setText("$"+total);
+
         flavorAdapter2=new cartAdapter(androidFlavor,getContext());
-           RecyclerView recyclerView=view.findViewById(R.id.rec1);
+            RecyclerView recyclerView=view.findViewById(R.id.rec1);
             recyclerView.setAdapter(flavorAdapter2);
             LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
             recyclerView.setLayoutManager(linearLayoutManager);
+
+            flavorAdapter2.notifyDataSetChanged();
+
+        Map<String, ?> bookitems = sh.getAll();
+
+        HashSet<Integer> sch_service_set=new HashSet<>();
+        HashSet<Integer> service_id=new HashSet<>();
+        HashSet<Integer> cost=new HashSet<>();
+        HashSet<String> service_name=new HashSet<>();
+
+
+        for(Map.Entry<String, ?> entry : bookitems.entrySet()){
+            Log.d("map values",entry.getKey() + ": " +
+                    entry.getValue().toString());
+
+            String[] str=entry.getValue().toString().split("-");
+
+            int item=Integer.parseInt(str[3]);
+            sch_service_set.add(item);
+
+            int service_item=Integer.parseInt(str[4]);
+            service_id.add(service_item);
+
+//            int cost_item=Integer.parseInt(str[5]);
+//            cost.add(cost_item);
+
+            String service_name_item=str[0];
+            service_name.add(service_name_item);
+
+
+
+
+
+        }
 
             pay=view.findViewById(R.id.paybutton);
             pay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    //UserLoginFunction(  put proper attributes needed for book request   )
+
+                    UserLoginFunction();
+
                     SharedPreferences sharedPreferences1=getContext().getSharedPreferences("ram",MODE_PRIVATE);
                     final SharedPreferences.Editor edit=sharedPreferences1.edit();
                     edit.putFloat("price",total);
                     edit.apply();
 
+                    Toast.makeText(getContext(), messege, Toast.LENGTH_SHORT).show();
+
                     Intent intent=new Intent(getActivity(),Saved_address.class);
                     intent.putExtra("amount",total);
                     startActivity(intent);
-                   // Toast.makeText(getContext(), "gsgalkjjldj;kdjsd", Toast.LENGTH_SHORT).show();
-                    //((Mainscreen)getActivity()).startPayment(total);
+
                 }
             });
 
-        //String json=sh.getString("json","");
 
-//        custom24model item=Sharedpref.getInstance(getContext()).getUser();
-//
-//
-//        int count=0;
-//        count=item.getImage();
-//        Toast.makeText(getContext(), "count"+count, Toast.LENGTH_SHORT).show();
-//
-//        Checkout.preload(getActivity());
-//
-//        if(item.getImage()!= -1 && item.getText()!=null) {
-//            View view1= inflater.inflate(R.layout.fragment_cartfrag, container, false);
-//
-//
-//
-//           //androidFlavor.add(new cartmodel(item.getImage(),item.getText()));
-//
-//
-//           flavorAdapter2=new cartAdapter(androidFlavor,getContext());
-//           RecyclerView recyclerView=view1.findViewById(R.id.rec1);
-//            recyclerView.setAdapter(flavorAdapter2);
-//            LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
-//            recyclerView.setLayoutManager(linearLayoutManager);
-//          //  imageView=view1.findViewById(R.id.carimage);
-//          //  textView=view1.findViewById(R.id.text1);
-//
-//            pay=view1.findViewById(R.id.paybutton);
-//            pay.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                   // Toast.makeText(getContext(), "gsgalkjjldj;kdjsd", Toast.LENGTH_SHORT).show();
-//                    ((Mainscreen)getActivity()).startPayment();
-//                }
-//            });
-//          //  button=view1.findViewById(R.id.add_btn);
-//          //  imageView.setImageResource(item.getImage());
-//          //  textView.setText(item.getText());
-//
-//          return view1;
-//        }else{
-//            Toast.makeText(getActivity(), "NOTHING IN THE CART ADD SERVICE", Toast.LENGTH_SHORT).show();
-//        }
         return view;
     }
+    public void UserLoginFunction(){
 
+        class UserLoginClass extends AsyncTask<String,Void,String> {
+
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+
+
+            }
+
+            @Override
+            protected void onPostExecute(String httpResponseMsg) {
+
+                super.onPostExecute(httpResponseMsg);
+
+
+                Toast.makeText(getContext(), httpResponseMsg, Toast.LENGTH_SHORT).show();
+
+                if(httpResponseMsg.contains("200")){
+
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(httpResponseMsg);
+                         messege= jsonObject.getString("booking_id");
+
+                       // Toast.makeText(getContext(), messege, Toast.LENGTH_SHORT).show();
+
+                        //Toast.makeText(Custom19.this, messege, Toast.LENGTH_SHORT).show();
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    //Toast.makeText(, "", Toast.LENGTH_SHORT).show();
+
+
+                   // startActivity(new Intent(getContext(),Initial_address.class));
+
+
+                }else{
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(httpResponseMsg);
+                        String messege = jsonObject.getString("msg");
+                        Toast.makeText(getContext(), messege, Toast.LENGTH_SHORT).show();
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+
+
+
+
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            protected String doInBackground(String... params) {
+
+
+                //String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
+                String jsonInputString="{\n\t\"method\":\"book\",\n\t\"user_id\":\"1\",\n\t\"sch_servie_id\":\"1\",\n\t\"vehicle_type_id\":\"1\",\n\t\"manufacturer_id\":\"2\",\n\t\"vehicle_id\":\"1\",\n\t\"vehicle_number\":\"OR5-880-3W4\",\n\t\"customer_name\":\"Swagatika Sahoo\",\n\t\"customer_mobile\":\"9999999999\",\n\t\"customer_email\":\"ss@gmail.com\",\n\t\"schedule_date\":\"16-09-2020\",\n\t\"schedule_time\":\"09:00\",\n\t\"location_id\":\"1\",\n\t\"pickup\":\"0\",\n\t\"pickup_date\":\"\",\n\t\"pickup_time\":\"\",\n\t\"pickup_address\":\"\",\n\t\"dropup\":\"0\",\n\t\"deliver_date\":\"\",\n\t\"deliver_time\":\"\",\n\t\"deliver_address\":\"\",\n\t\"service_id\":[2,2],\n\t\"sub_service\":[2,4],\n\t\"service_name\":[],\n\t\"cost\":[5,2]\n\t\n}";
+
+
+
+                finalResult = jsonhttpParse.postRequest(jsonInputString, HttpURL);
+
+                return finalResult;
+            }
+        }
+
+        UserLoginClass userLoginClass = new UserLoginClass();
+
+        userLoginClass.execute();
+    }
 
 }

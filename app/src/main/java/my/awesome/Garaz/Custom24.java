@@ -105,8 +105,9 @@ ProgressDialog progressDialog1;
                             JSONObject ob=result.getJSONObject(i);
 
                             // Toast.makeText(FirstActivity.this, ob.getString("name"), Toast.LENGTH_SHORT).show();
-                            searchModel history1=new searchModel(R.drawable.hundaii,ob.getString("sub_service")
-                                   );
+                            searchModel history1=new searchModel(R.drawable.hundaii,ob.getString("sub_service"),
+                                   ob.getString("sch_servie_id"),ob.getString("service_id"),ob.getString("service_price"),
+                            ob.getString("img"));
 
                             customflavor1.add(history1);
                         }

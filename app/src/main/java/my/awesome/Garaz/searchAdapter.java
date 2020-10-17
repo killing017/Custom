@@ -56,7 +56,8 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.viewHolder
             @Override
             public void onClick(View v) {
 
-                myEdit.putString(searchModel.getText(), searchModel.getText() + "-" + holder.textView2.getText().toString() + "-" + searchModel.getImage());
+                myEdit.putString(searchModel.getText(), searchModel.getText() + "-" + holder.textView2.getText().toString() + "-" + searchModel.getImage()
+                +"-"+searchModel.getSch_service_id()+"-"+searchModel.getService_id()+"-"+searchModel.getPrice()+"-"+searchModel.getImg());
                 // myEdit.putString("json", httpResponseMsg);
                 myEdit.apply();
 

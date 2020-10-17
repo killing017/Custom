@@ -176,8 +176,9 @@ public class searchfrag extends Fragment {
                             JSONObject ob=result.getJSONObject(i);
 
                             // Toast.makeText(FirstActivity.this, ob.getString("name"), Toast.LENGTH_SHORT).show();
-                            custom24model history1=new custom24model(R.drawable.hundaii,ob.getString("sub_service")
-                                   );
+                            custom24model history1=new custom24model(R.drawable.hundaii,ob.getString("sub_service"),
+                                    ob.getString("sch_servie_id"),ob.getString("service_id"),ob.getString("service_price"),
+                                    ob.getString("img"));
                             customflavor.add(history1);
                         }
 

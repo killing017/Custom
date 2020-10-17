@@ -44,12 +44,7 @@ public class Myprofile extends AppCompatActivity {
                             email=ob.getString("customer_email");
                             phone=ob.getString("customer_mobile");
 
-
                         }
-
-
-
-
 
             Toast.makeText(this, ""+email+"--"+phone, Toast.LENGTH_SHORT).show();
 
