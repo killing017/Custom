@@ -103,9 +103,9 @@ Button pay;
             androidFlavor.add(new cartmodel(100,str[0]));
         }
 
-        youpay.setText("$"+total);
-        payamount.setText("$"+total);
-        Total.setText("$"+total);
+        youpay.setText("₹"+total);
+        payamount.setText("₹"+total);
+        Total.setText("₹"+total);
 
         flavorAdapter2=new cartAdapter(androidFlavor,getContext());
             RecyclerView recyclerView=view.findViewById(R.id.rec1);
