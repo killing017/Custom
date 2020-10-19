@@ -1,5 +1,6 @@
 package my.awesome.Garaz;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +8,8 @@ import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +22,7 @@ import android.widget.Toast;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Calendar;
@@ -26,7 +30,7 @@ import java.util.Date;
 
 public class Saved_address extends AppCompatActivity implements PaymentResultListener {
     private static final String TAG = Mainscreen.class.getSimpleName();
-
+    String Name,Email,Phone;
     String dateselected;
     String timeSlotSelected;
 
@@ -37,13 +41,23 @@ public class Saved_address extends AppCompatActivity implements PaymentResultLis
     String newloc;
     TextView price;
 
-
+    JsonHttpParse jsonhttpParse = new JsonHttpParse();
+    String HttpURL = "https://www.cakiweb.com/mechanic/json-api/api.php";
+    String finalResult;
+    String messege;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_address);
+        SharedPreferences sharedPreferences12=Saved_address.this.getSharedPreferences("profie",MODE_PRIVATE);
+        if(sharedPreferences12!=null) {
+            Email = sharedPreferences12.getString("email", null);
+            Toast.makeText(this, ""+Email, Toast.LENGTH_SHORT).show();
+            Name = sharedPreferences12.getString("name", null);
 
-        Checkout.preload(getApplicationContext());
+             Phone = sharedPreferences12.getString("phone", null);
+        }
+            Checkout.preload(getApplicationContext());
 
         // get address from the shared prefernece which is saved initially and paste in the textview whose id is address;
 
@@ -230,6 +244,8 @@ public class Saved_address extends AppCompatActivity implements PaymentResultLis
     }
 
 
+
+
     public void startPayment(Float total) {
 
         /**
@@ -255,15 +271,15 @@ public class Saved_address extends AppCompatActivity implements PaymentResultLis
         try {
             JSONObject options = new JSONObject();
 
-            options.put("name", "Example name");
+            options.put("name",""+Name);
             options.put("description", "Payment description ");
             options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
             //options.put("order_id", "order_DBJOWzybf0sJbb");//from response of step 3.
             options.put("theme.color", "#FF0000");
             options.put("currency", "INR");
             options.put("amount", ""+total*100);//pass amount in currency subunits
-            options.put("prefill.email", "amanm1408@gmail.com");
-            options.put("prefill.contact","1234567089");
+            options.put("prefill.email",""+Email);
+            options.put("prefill.contact",""+Phone);
             checkout.open(activity, options);
         } catch(Exception e) {
             Log.e(TAG, "Error in starting Razorpay Checkout", e);
@@ -273,6 +289,7 @@ public class Saved_address extends AppCompatActivity implements PaymentResultLis
     @Override
     public void onPaymentSuccess(String s) {
         Toast.makeText(this, "Payment success--"+s, Toast.LENGTH_SHORT).show();
+    UserLoginFunction1();
     }
 
     @Override
@@ -355,6 +372,7 @@ public class Saved_address extends AppCompatActivity implements PaymentResultLis
     }
 
     public void proceed_btn(View view) {
+        UserLoginFunction();
         SharedPreferences sh =Saved_address.this.getSharedPreferences("ram", MODE_PRIVATE);
         Float amount=sh.getFloat("price",0.00f);
 
@@ -364,5 +382,155 @@ public class Saved_address extends AppCompatActivity implements PaymentResultLis
         // proceed to pay.
 
 
+    }
+    public void UserLoginFunction(){
+
+        class UserLoginClass extends AsyncTask<String,Void,String> {
+
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+
+
+            }
+
+            @Override
+            protected void onPostExecute(String httpResponseMsg) {
+
+                super.onPostExecute(httpResponseMsg);
+
+
+                Toast.makeText(Saved_address.this, httpResponseMsg, Toast.LENGTH_SHORT).show();
+
+                if(httpResponseMsg.contains("200")){
+
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(httpResponseMsg);
+                        messege= jsonObject.getString("booking_id");
+                        //handle this booking id as it will be used in next step
+
+
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
+
+
+                }else{
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(httpResponseMsg);
+                        String messege = jsonObject.getString("msg");
+
+
+
+                        Toast.makeText(Saved_address.this, messege, Toast.LENGTH_SHORT).show();
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            protected String doInBackground(String... params) {
+
+
+                //String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
+                String jsonInputString="{\n\"method\":\"payment_details\",\n\"booking_id\":\"15\",\n\"user_id\":\"1\"\n}";
+
+
+
+                finalResult = jsonhttpParse.postRequest(jsonInputString, HttpURL);
+
+                return finalResult;
+            }
+        }
+
+        UserLoginClass userLoginClass = new UserLoginClass();
+
+        userLoginClass.execute();
+    }
+    public void UserLoginFunction1(){
+
+        class UserLoginClass extends AsyncTask<String,Void,String> {
+
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+
+
+            }
+
+            @Override
+            protected void onPostExecute(String httpResponseMsg) {
+
+                super.onPostExecute(httpResponseMsg);
+
+
+                Toast.makeText(Saved_address.this, httpResponseMsg, Toast.LENGTH_SHORT).show();
+
+                if(httpResponseMsg.contains("200")){
+
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(httpResponseMsg);
+                        messege= jsonObject.getString("booking_id");
+                        //handle this booking id as it will be used in next step
+
+
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
+
+
+                }else{
+                    JSONObject jsonObject = null;
+                    try {
+                        jsonObject = new JSONObject(httpResponseMsg);
+                        String messege = jsonObject.getString("msg");
+
+
+
+                        Toast.makeText(Saved_address.this, messege, Toast.LENGTH_SHORT).show();
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            protected String doInBackground(String... params) {
+
+
+                //String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
+                String jsonInputString="{\n\"method\":\"update_payment\",\n\"booking_id\":\"15\",\n\"amount\":\"7\",\n\"wallet\":\"2\",\n\"discount\":\"0\",\n\"user_id\":\"1\"\n}";
+
+
+
+                finalResult = jsonhttpParse.postRequest(jsonInputString, HttpURL);
+
+                return finalResult;
+            }
+        }
+
+        UserLoginClass userLoginClass = new UserLoginClass();
+
+        userLoginClass.execute();
     }
 }

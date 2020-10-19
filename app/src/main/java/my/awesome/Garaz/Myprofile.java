@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 public class Myprofile extends AppCompatActivity {
     TextView name2 , email2 , phone2, password;
-    String name,email,phone;
+    String name,email,phone,id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +40,7 @@ public class Myprofile extends AppCompatActivity {
 
             for (int i = 0; i < array.length(); i++) {
                             JSONObject ob = array.getJSONObject(i);
+                             id=ob.getString("id");
                             name=ob.getString("customer_name");
                             email=ob.getString("customer_email");
                             phone=ob.getString("customer_mobile");
@@ -64,6 +65,13 @@ public class Myprofile extends AppCompatActivity {
 //         if(sharedPreferences1!=null){
 
 //         }
+        SharedPreferences sharedPreferences3 = Myprofile.this.getSharedPreferences("id", MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences3.edit();
+        editor.putString("id",id);
+        editor.putString("name",name);
+        editor.putString("email",email);
+        editor.putString("phone",phone);
+        editor.apply();
         name2.setText(name);
         email2.setText(email);
         phone2.setText(phone);

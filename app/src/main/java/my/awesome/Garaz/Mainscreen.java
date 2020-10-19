@@ -25,12 +25,19 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
     private static final String TAG = Mainscreen.class.getSimpleName();
     BottomNavigationView btn;
     float Total;
+    String Name,Email,Phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreen);
         btn=findViewById(R.id.bnav);
+        SharedPreferences sharedPreferences12=Mainscreen.this.getSharedPreferences("profie",MODE_PRIVATE);
+        if(sharedPreferences12!=null) {
+            Email = sharedPreferences12.getString("email", null);
+            Name = sharedPreferences12.getString("name", null);
 
+            Phone = sharedPreferences12.getString("phone", null);
+        }
 //        SharedPreferences sharedPreferences1 =Mainscreen.this.getSharedPreferences("ram", MODE_PRIVATE);
 //       Total=sharedPreferences1.getFloat("price",0.0f);
 //       Total=Total*1000;
@@ -128,15 +135,15 @@ public class Mainscreen extends AppCompatActivity implements PaymentResultListen
         try {
             JSONObject options = new JSONObject();
 
-            options.put("name", "Example name");
+            options.put("name", ""+Name);
             options.put("description", "Payment description ");
             options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
             //options.put("order_id", "order_DBJOWzybf0sJbb");//from response of step 3.
             options.put("theme.color", "#FF0000");
             options.put("currency", "INR");
             options.put("amount", ""+total*100);//pass amount in currency subunits
-            options.put("prefill.email", "amanm1408@gmail.com");
-            options.put("prefill.contact","1234567089");
+            options.put("prefill.email", ""+Email);
+            options.put("prefill.contact",""+Phone);
             checkout.open(activity, options);
         } catch(Exception e) {
             Log.e(TAG, "Error in starting Razorpay Checkout", e);

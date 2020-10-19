@@ -23,7 +23,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Accountfrag extends Fragment  {
 
-TextView logout,mycars;
+TextView logout,mycars,refer;
 TextView account;
     public Accountfrag() {
         // Required empty public constructor
@@ -91,6 +91,14 @@ TextView account;
          }
      });
 
+refer=view.findViewById(R.id.refer);
+refer.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent=new Intent(getActivity(),ReferAndEarn.class);
+        startActivity(intent);
+    }
+});
         return  view;
     }
 

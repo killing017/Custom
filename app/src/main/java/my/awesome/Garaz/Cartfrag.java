@@ -44,8 +44,9 @@ import static android.content.Context.MODE_PRIVATE;
 public class Cartfrag extends Fragment  {
     Tag ram;
 
-    String messege;
-
+    String messege,userid,name,email,phone;
+    ArrayList<Integer> sch_service_set;
+    ArrayList<Integer> service_id;
 Float total=0.0f;
 TextView Total,youpay,payamount;
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -72,6 +73,14 @@ Button pay;
         Total=view.findViewById(R.id.Total);
         youpay=view.findViewById(R.id.youpay);
         payamount=view.findViewById(R.id.payamount);
+        SharedPreferences sharedPreferences3 = this.getActivity().getSharedPreferences("id", MODE_PRIVATE);
+        if (sharedPreferences3!=null) {
+            userid=sharedPreferences3.getString("id", null);
+            name=sharedPreferences3.getString("name",null);
+            email=sharedPreferences3.getString("email",null);
+            phone=sharedPreferences3.getString("phone",null);
+
+        }
         SharedPreferences sh =this.getActivity().getSharedPreferences("MySharedPref", MODE_PRIVATE);
      //   Toast.makeText(getActivity(), ""+sh.getAll().size(), Toast.LENGTH_SHORT).show();
 
@@ -108,8 +117,8 @@ Button pay;
 
         Map<String, ?> bookitems = sh.getAll();
 
-        ArrayList<Integer> sch_service_set=new ArrayList<>();
-        ArrayList<Integer> service_id=new ArrayList<>();
+        sch_service_set=new ArrayList<>();
+        service_id=new ArrayList<>();
         ArrayList<Integer> cost=new ArrayList<>();
         ArrayList<String> service_name=new ArrayList<>();
 
@@ -123,8 +132,8 @@ Button pay;
 
             String[] str=entry.getValue().toString().split("-");
 
-            int item=Integer.parseInt(str[3]);
-            sch_service_set.add(item);
+          //  int item=Integer.parseInt(str[3]);
+          //  sch_service_set.add(item);
 
             int service_item=Integer.parseInt(str[4]);
             service_id.add(service_item);
@@ -220,12 +229,6 @@ Button pay;
                         e.printStackTrace();
                     }
                 }
-
-
-
-
-
-
             }
 
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -234,7 +237,7 @@ Button pay;
 
 
                 //String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
-                String jsonInputString="{\n\t\"method\":\"book\",\n\t\"user_id\":\"1\",\n\t\"sch_servie_id\":\"1\",\n\t\"vehicle_type_id\":\"1\",\n\t\"manufacturer_id\":\"2\",\n\t\"vehicle_id\":\"1\",\n\t\"vehicle_number\":\"OR5-880-3W4\",\n\t\"customer_name\":\"Swagatika Sahoo\",\n\t\"customer_mobile\":\"9999999999\",\n\t\"customer_email\":\"ss@gmail.com\",\n\t\"schedule_date\":\"16-09-2020\",\n\t\"schedule_time\":\"09:00\",\n\t\"location_id\":\"1\",\n\t\"pickup\":\"0\",\n\t\"pickup_date\":\"\",\n\t\"pickup_time\":\"\",\n\t\"pickup_address\":\"\",\n\t\"dropup\":\"0\",\n\t\"deliver_date\":\"\",\n\t\"deliver_time\":\"\",\n\t\"deliver_address\":\"\",\n\t\"service_id\":[2,2],\n\t\"sub_service\":[2,4],\n\t\"service_name\":[],\n\t\"cost\":[5,2]\n\t\n}";
+                String jsonInputString="{\n\t\"method\":\"book\",\n\t\"user_id\":\"\""+userid+",\n\t\"sch_servie_id\":\"1\",\n\t\"vehicle_type_id\":\"1\",\n\t\"manufacturer_id\":\"2\",\n\t\"vehicle_id\":\"1\",\n\t\"vehicle_number\":\"OR5-880-3W4\",\n\t\"customer_name\":\"\""+name+",\n\t\"customer_mobile\":\"\""+phone+",\n\t\"customer_email\":\"\""+email+",\n\t\"schedule_date\":\"16-09-2020\",\n\t\"schedule_time\":\"09:00\",\n\t\"location_id\":\"1\",\n\t\"pickup\":\"0\",\n\t\"pickup_date\":\"\",\n\t\"pickup_time\":\"\",\n\t\"pickup_address\":\"\",\n\t\"dropup\":\"0\",\n\t\"deliver_date\":\"\",\n\t\"deliver_time\":\"\",\n\t\"deliver_address\":\"\",\n\t\"service_id\":"+sch_service_set+",\n\t\"sub_service\":"+service_id+",\n\t\"service_name\":[],\n\t\"cost\":[5,2]\n\t\n}";
 
 
 
