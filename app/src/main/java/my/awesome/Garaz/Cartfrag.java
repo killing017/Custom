@@ -132,8 +132,8 @@ Button pay;
 
             String[] str=entry.getValue().toString().split("-");
 
-          //  int item=Integer.parseInt(str[3]);
-          //  sch_service_set.add(item);
+            int item=Integer.parseInt(str[3]);
+           sch_service_set.add(item);
 
             int service_item=Integer.parseInt(str[4]);
             service_id.add(service_item);
@@ -237,7 +237,7 @@ Button pay;
 
 
                 //String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
-                String jsonInputString="{\n\t\"method\":\"book\",\n\t\"user_id\":\"\""+userid+",\n\t\"sch_servie_id\":\"1\",\n\t\"vehicle_type_id\":\"1\",\n\t\"manufacturer_id\":\"2\",\n\t\"vehicle_id\":\"1\",\n\t\"vehicle_number\":\"OR5-880-3W4\",\n\t\"customer_name\":\"\""+name+",\n\t\"customer_mobile\":\"\""+phone+",\n\t\"customer_email\":\"\""+email+",\n\t\"schedule_date\":\"16-09-2020\",\n\t\"schedule_time\":\"09:00\",\n\t\"location_id\":\"1\",\n\t\"pickup\":\"0\",\n\t\"pickup_date\":\"\",\n\t\"pickup_time\":\"\",\n\t\"pickup_address\":\"\",\n\t\"dropup\":\"0\",\n\t\"deliver_date\":\"\",\n\t\"deliver_time\":\"\",\n\t\"deliver_address\":\"\",\n\t\"service_id\":"+sch_service_set+",\n\t\"sub_service\":"+service_id+",\n\t\"service_name\":[],\n\t\"cost\":[5,2]\n\t\n}";
+                String jsonInputString="{\n\t\"method\":\"book\",\n\t\"user_id\":\""+userid+"\",\n\t\"sch_servie_id\":\"1\",\n\t\"vehicle_type_id\":\"1\",\n\t\"manufacturer_id\":\"2\",\n\t\"vehicle_id\":\"1\",\n\t\"vehicle_number\":\"OR5-880-3W4\",\n\t\"customer_name\":\""+name+"\",\n\t\"customer_mobile\":\""+phone+"\",\n\t\"customer_email\":\""+email+"\",\n\t\"schedule_date\":\"16-09-2020\",\n\t\"schedule_time\":\"09:00\",\n\t\"location_id\":\"1\",\n\t\"pickup\":\"0\",\n\t\"pickup_date\":\"\",\n\t\"pickup_time\":\"\",\n\t\"pickup_address\":\"\",\n\t\"dropup\":\"0\",\n\t\"deliver_date\":\"\",\n\t\"deliver_time\":\"\",\n\t\"deliver_address\":\"\",\n\t\"service_id\":"+sch_service_set+",\n\t\"sub_service\":"+service_id+",\n\t\"service_name\":[],\n\t\"cost\":[5,2]\n\t\n}";
 
 
 

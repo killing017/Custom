@@ -48,6 +48,7 @@ public class Myprofile extends AppCompatActivity {
                         }
 
             Toast.makeText(this, ""+email+"--"+phone, Toast.LENGTH_SHORT).show();
+            Toast.makeText(Myprofile.this, ""+id, Toast.LENGTH_SHORT).show();
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -67,6 +68,7 @@ public class Myprofile extends AppCompatActivity {
 //         }
         SharedPreferences sharedPreferences3 = Myprofile.this.getSharedPreferences("id", MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences3.edit();
+
         editor.putString("id",id);
         editor.putString("name",name);
         editor.putString("email",email);
