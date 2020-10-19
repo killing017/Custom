@@ -31,9 +31,9 @@ import java.util.Date;
 public class Saved_address extends AppCompatActivity implements PaymentResultListener {
     private static final String TAG = Mainscreen.class.getSimpleName();
     String Name,Email,Phone;
-    String dateselected;
+    String dateselected,booking_id,userid;
     String timeSlotSelected;
-
+    float amount;
     TextView textView,textView2,textView3,textView4;
     TextView time1,time2,time3,time4;
 
@@ -49,10 +49,14 @@ public class Saved_address extends AppCompatActivity implements PaymentResultLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_address);
+        SharedPreferences sharedPreferences3 = Saved_address.this.getSharedPreferences("id", MODE_PRIVATE);
+        if (sharedPreferences3!=null) {
+            userid = sharedPreferences3.getString("id", null);
+        }
         SharedPreferences sharedPreferences12=Saved_address.this.getSharedPreferences("profie",MODE_PRIVATE);
         if(sharedPreferences12!=null) {
             Email = sharedPreferences12.getString("email", null);
-            Toast.makeText(this, ""+Email, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, ""+Email, Toast.LENGTH_SHORT).show();
             Name = sharedPreferences12.getString("name", null);
 
              Phone = sharedPreferences12.getString("phone", null);
@@ -71,8 +75,7 @@ public class Saved_address extends AppCompatActivity implements PaymentResultLis
 
         Intent intent=getIntent();
 
-        float amount=intent.getFloatExtra("amount",0.0f);
-
+         amount=intent.getFloatExtra("amount",0.0f);
         String str=String.valueOf(amount);
        price.append(str);
 
@@ -441,10 +444,12 @@ public class Saved_address extends AppCompatActivity implements PaymentResultLis
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             protected String doInBackground(String... params) {
-
-
+                SharedPreferences savelocation1 =Saved_address.this.getSharedPreferences("booking_id", MODE_PRIVATE);
+                if(savelocation1!=null) {
+                    booking_id = savelocation1.getString("booking_id", null);
+                }
                 //String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
-                String jsonInputString="{\n\"method\":\"payment_details\",\n\"booking_id\":\"15\",\n\"user_id\":\"1\"\n}";
+                String jsonInputString="{\n\"method\":\"payment_details\",\n\"booking_id\":\""+booking_id+"\",\n\"user_id\":\""+userid+"\"\n}";
 
 
 
@@ -519,7 +524,7 @@ public class Saved_address extends AppCompatActivity implements PaymentResultLis
 
 
                 //String jsonInputString="{\"method\":\"login\",\"customer_email\":\""+Email+"\",\"customer_password\":\""+Password+"\"}";
-                String jsonInputString="{\n\"method\":\"update_payment\",\n\"booking_id\":\"15\",\n\"amount\":\"7\",\n\"wallet\":\"2\",\n\"discount\":\"0\",\n\"user_id\":\"1\"\n}";
+                String jsonInputString="{\n\"method\":\"update_payment\",\n\"booking_id\":\""+booking_id+"\",\n\"amount\":\""+amount+"\",\n\"wallet\":\"2\",\n\"discount\":\"0\",\n\"user_id\":\""+userid+"\"\n}";
 
 
 

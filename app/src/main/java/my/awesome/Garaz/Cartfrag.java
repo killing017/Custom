@@ -44,7 +44,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class Cartfrag extends Fragment  {
     Tag ram;
 
-    String messege,userid,name,email,phone;
+    String booking_id,userid,name,email,phone,message;
     ArrayList<Integer> sch_service_set;
     ArrayList<Integer> service_id;
 Float total=0.0f;
@@ -200,12 +200,14 @@ Button pay;
 
                     JSONObject jsonObject = null;
                     try {
-                        jsonObject = new JSONObject(httpResponseMsg);
-                         messege= jsonObject.getString("booking_id");
+                        jsonObject = new JSONObject(httpResponseMsg.substring(httpResponseMsg.indexOf('{'),httpResponseMsg.indexOf('}')+1));
+                         booking_id= jsonObject.getString("booking_id");
+                        SharedPreferences sharedPreferences1=getContext().getSharedPreferences("booking_id",MODE_PRIVATE);
+                        final SharedPreferences.Editor edit=sharedPreferences1.edit();
+                        edit.putString("booking_id",booking_id);
+                        edit.apply();
+                      //  Toast.makeText(getContext(), "y"+booking_id, Toast.LENGTH_SHORT).show();
                          //handle this booking id as it will be used in next step
-
-
-
 
                     } catch (JSONException e) {
                         e.printStackTrace();
